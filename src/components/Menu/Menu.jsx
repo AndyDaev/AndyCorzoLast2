@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Menu.css";
-
+import Logo from "/src/assets/Logo.svg";
 import { Link, useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 
@@ -183,9 +183,9 @@ const Menu = () => {
     <div className="menu-container" ref={menuContainer}>
       <div className="menu-bar" ref={menuBarRef}>
         <div className="menu-bar-container">
-          <div className="menu-logo" onClick={closeMenu}>
-            <Link to="/">
-              <h4>Palmer</h4>
+          <div className="menu-logo w-32 md:w-48 lg:w-64 flex justify-center py-4"  onClick={closeMenu}>
+            <Link to="/" className="">
+              <img src={Logo} alt="logo"  className="" />
             </Link>
           </div>
           <div className="menu-actions">

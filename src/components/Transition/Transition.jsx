@@ -23,7 +23,7 @@ const Transition = (Page) => {
                 animate={{ scaleY: 0 }}
                 exit={{ scaleY: 0 }}
                 transition={{
-                  duration: 1,
+                  duration: 0.5,
                   ease: [0.22, 1, 0.36, 1],
                   delay: calculateRandomBlockDelay(rowIndex, 10),
                 }}
@@ -44,7 +44,7 @@ const Transition = (Page) => {
                 animate={{ scaleY: 0 }}
                 exit={{ scaleY: 1 }}
                 transition={{
-                  duration: 1,
+                  duration: 0.5,
                   ease: [0.22, 1, 0.36, 1],
                   delay: calculateRandomBlockDelay(rowIndex, 10),
                 }}

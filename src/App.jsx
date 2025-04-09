@@ -12,6 +12,8 @@ import FAQ from "./pages/FAQ/FAQ";
 import Contact from "./pages/Contact/Contact";
 
 import { AnimatePresence } from "framer-motion";
+import Altavoz from "./pages/Project/Altavoz";
+import Navbar from "./components/navbar/Navbar";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,7 +33,8 @@ function App() {
   return (
     <>
       <ScrollToTop />
-      <Menu />
+      <Navbar />
+ {/*      <Menu /> */}
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
@@ -39,7 +42,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/work" element={<Work />} />
-          <Route path="/sample-project" element={<Project />} />
+          <Route path="/altavoz" element={<Altavoz />} />
         </Routes>
       </AnimatePresence>
     </>

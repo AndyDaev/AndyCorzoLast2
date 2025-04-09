@@ -1,78 +1,67 @@
 @font-face {
-  font-family: "Rader";
-  src: url("/fonts/rader/PPRader-Bold.ttf") format("truetype");
+  font-family: Inter;
+  src: url("/fonts/Inter/Inter_24pt-Bold") format("truetype");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Rader";
-  src: url("/fonts/rader/PPRader-BoldItalic.ttf") format("truetype");
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
+
+
 
 @font-face {
-  font-family: "Rader";
-  src: url("/fonts/rader/PPRader-Hairline.ttf") format("truetype");
+  font-family: Inter;
+  src: url("/fonts/Inter/Inter_18pt-Regular") format("truetype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Rader";
-  src: url("/fonts/rader/PPRader-HairlineItalic.ttf") format("truetype");
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
+
 
 @font-face {
-  font-family: "Rader";
-  src: url("/fonts/rader/PPRader-Italic.ttf") format("truetype");
+  font-family: Inter;
+  src: url("/fonts/Inter/Inter_18pt-Italic.ttf") format("truetype");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Rader";
-  src: url("/fonts/rader/PPRader-Medium.ttf") format("truetype");
+  font-family: Inter;
+  src: url("/fonts/Inter/Inter_18pt-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Rader";
-  src: url("/fonts/rader/PPRader-MediumItalic.ttf") format("truetype");
+  font-family: Inter;
+  src: url("/fonts/Inter/Inter_18pt-MediumItalic.ttf") format("truetype");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Rader";
-  src: url("/fonts/rader/PPRader-Regular.ttf") format("truetype");
+  font-family: Inter;
+  src: url("/fonts/Inter/Inter_18pt-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Rader";
-  src: url("/fonts/rader/PPRader-Thin.ttf") format("truetype");
+  font-family: Inter;
+  src: url("/fonts/Inter/Inter_18pt-Thin.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Rader";
-  src: url("/fonts/rader/PPRader-ThinItalic.ttf") format("truetype");
+  font-family: Inter;
+  src: url("/fonts/Inter/Inter_18pt-ThinItalic.ttf") format("truetype");
   font-weight: 200;
   font-style: italic;
   font-display: swap;

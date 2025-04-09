@@ -124,6 +124,35 @@
   border-radius: 1em;
 }
 
+.trail-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.trail-container p {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.trail-img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: none;
+  pointer-events: none;
+}
+
 @media (max-width: 1000px) {
   .hero,
   .sticky-titles,

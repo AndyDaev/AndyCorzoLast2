@@ -1,7 +1,8 @@
 @import "./fonts.css";
+@import "tailwindcss";
 
 :root {
-  --bg: #e3e3db;
+  --bg: #ffffff;
   --bg200: rgba(227, 227, 219, 0.25);
   --fg: #0f0f0f;
   --fg200: #1f1f1f;
@@ -33,7 +34,7 @@ h3,
 h4,
 h5 {
   text-transform: uppercase;
-  font-family: "Rader";
+  font-family: Inter;
 }
 
 h1 {
@@ -185,3 +186,6 @@ textarea::placeholder {
     line-height: 6vw;
   }
 }
+
+/* New navbar */
+

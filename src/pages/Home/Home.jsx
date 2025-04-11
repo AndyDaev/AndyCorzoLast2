@@ -130,7 +130,7 @@ const Home = () => {
     if (!container) return;
 
     const config = {
-      imageCount: 35,
+      imageCount: 21,
       imageLifespan: 750,
       removalDelay: 50,
       mouseThreshold: 100,
@@ -144,7 +144,7 @@ const Home = () => {
 
     const images = Array.from(
       { length: config.imageCount },
-      (_, i) => `/assets/img${i + 1}.jpeg`
+      (_, i) => `/assets/img${i + 1}.png`
     );
     const trail = [];
 

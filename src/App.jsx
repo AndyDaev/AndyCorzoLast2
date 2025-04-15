@@ -10,10 +10,12 @@ import Project from "./pages/Project/Project";
 import About from "./pages/About/About";
 import FAQ from "./pages/FAQ/FAQ";
 import Contact from "./pages/Contact/Contact";
+import Work2 from "./pages/Work2/Projects";
 
 import { AnimatePresence } from "framer-motion";
 import Altavoz from "./pages/Project/Altavoz";
 import Navbar from "./components/navbar/Navbar";
+import Projects from "./pages/Work2/Projects";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -41,7 +43,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/work" element={<Work />} />
+          <Route path="/work" element={<Projects />} />
           <Route path="/altavoz" element={<Altavoz />} />
         </Routes>
       </AnimatePresence>

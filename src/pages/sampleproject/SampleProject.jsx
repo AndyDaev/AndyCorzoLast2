@@ -137,7 +137,7 @@ const SampleProject = () => {
           </div>
 
           <div className="next-project-cta ">
-            <Link to={CurrentLocation(cl)}>
+            <Link to={CurrentLocation()}>
               <h1 className="text-[var(--primary)]">Next Project</h1>
             </Link>
           </div>

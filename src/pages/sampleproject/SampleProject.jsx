@@ -4,7 +4,7 @@ import { useLocation  } from "react-router-dom";
 
 import "./SampleProject.css";
 
-import Transition from "../../components/transition/Transition";
+import Transition from "../../components/Transition/Transition";
 
 import ProjectHeroImg from "../../assets/sample-projects/sample-project-hero-2.jpg";
 import ProjectHeroImg2 from "../../assets/sample-projects/sample-project-hero-3.jpg";
@@ -137,7 +137,7 @@ const SampleProject = () => {
           </div>
 
           <div className="next-project-cta ">
-            <Link to={CurrentLocation()}>
+            <Link to={CurrentLocation(cl)}>
               <h1 className="text-[var(--primary)]">Next Project</h1>
             </Link>
           </div>

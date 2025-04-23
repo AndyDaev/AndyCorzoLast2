@@ -1,0 +1,188 @@
+.archive-page {
+  --color-bg: #000;
+  --color-text: #fff;
+}
+
+@font-face {
+  font-family: "Notch Grotesk";
+  font-weight: 300;
+  src: url("../../assets/fonts/NotchGrotesk-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Notch Grotesk";
+  font-weight: 500;
+  src: url("../../assets/fonts/NotchGrotesk-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Notch Grotesk";
+  font-weight: 700;
+  src: url("../../assets/fonts/NotchGrotesk-Bold.ttf") format("truetype");
+}
+
+.archive-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Notch Grotesk", sans-serif;
+}
+
+.archive-page {
+  overflow-x: hidden;
+}
+
+.archive-page ::-webkit-scrollbar {
+  display: none;
+}
+
+.archive-page html,
+.archive-page body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.archive-page h1 {
+  font-size: 3.75em;
+  margin: 0;
+  padding: 0;
+  line-height: 100%;
+}
+
+.archive-page p,
+.archive-page a,
+.archive-page li {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 125%;
+}
+
+.archive-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.archive-page button {
+  border: none;
+  outline: none;
+  padding: 0.75em 1.25em;
+  font-size: 12px;
+  color: var(--color-text);
+  background-color: rgba(255, 255, 255, 0.125);
+  border-radius: 2em;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.archive-page button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.archive-page ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.archive-page li {
+  font-size: 22px;
+}
+
+.archive-page .container {
+  width: 100%;
+  height: 100%;
+}
+
+.archive-page .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  margin: 0.5em 0;
+}
+
+.archive {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.archive h1 {
+  color: var(--color-text);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.archive .row {
+  position: relative;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; }
+
+.archive-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.archive-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.archive-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* This already helps with separation */
+  align-items: center;
+  padding: 0 2rem;
+  gap: 1rem; /* Adds space between flex items */
+}
+.archive h1{
+  color: white;
+  font-size: 2.3em;
+}
+
+.archive p{
+  color: white;
+}
+p#archive-category {
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .archive-page h1 {
+    font-size: 2em;
+  }
+  
+  .archive-item {
+    width: 100%;
+  }
+}

@@ -9,12 +9,12 @@ const Footer = () => {
       <div className="footer-row">
         <div className="footer-contact">
           <h3>
-            Let’s Collaborate <br />
-            film<span>@</span>nicopalmer.com
+            Let’s Work Together <br />
+            andreslopzcorz<span>@</span>gmail.com
           </h3>
 
           <p className="secondary">
-            From short films to full productions — I’m always open to creative
+            From design to other realms — I’m always open to creative
             collaborations. Feel free to reach out anytime.
           </p>
 
@@ -52,13 +52,13 @@ const Footer = () => {
       </div>
       <div className="footer-row">
         <div className="footer-header">
-          <h1>Nico</h1>
-          <h1>Palmer</h1>
+          <h1>Andy</h1>
+          <h1>Corzo</h1>
         </div>
 
         <div className="footer-copyright-line">
-          <p className="primary sm">&copy; Nico Palmer 2025</p>
-          <p className="primary sm">Website Template by Codegrid</p>
+          <p className="primary sm">&copy; Andy Corzo 2025</p>
+          <p className="primary sm">Created by AndyCorzo</p>
         </div>
       </div>
     </div>

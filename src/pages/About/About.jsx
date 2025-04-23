@@ -11,11 +11,11 @@ import Transition from "../../components/Transition/Transition";
 
 const About = () => {
   return (
-    <ReactLenis root>
+    <ReactLenis root className="bg-white">
       <div className="page about">
         <section className="about-header">
-          <h1>Est</h1>
-          <h1>1997</h1>
+          <h1>HI!!</h1>
+          <h1></h1>
         </section>
 
         <section className="about-hero">

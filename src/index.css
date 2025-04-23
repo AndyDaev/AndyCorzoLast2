@@ -2,10 +2,11 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #ffffff;
+  --bg: #020202;
   --bg200: rgba(227, 227, 219, 0.25);
   --fg: #0f0f0f;
   --fg200: #1f1f1f;
+  --primary: #ffff;
 }
 
 * {

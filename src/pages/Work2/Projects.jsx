@@ -55,7 +55,7 @@ const projectsData = [
 const Projects = () => {
   const [projectList, setProjectList] = useState([]);
   const containerRef = useRef(null);
-  const lenis = useLenis(({ scroll }) => {});
+  const _lenis = useLenis(() => {});
 
   useEffect(() => {
     const numberOfCopies = 5;
@@ -126,7 +126,7 @@ const Projects = () => {
           {projectList.map((project) => (
             <div className="row" key={project.id}>
               <div className="project-item">
-                <Link to={`/sample-project/${project.id}`}>
+                <Link to={`/project/${project.id}`}>
                   <div className="project-img">
                     <img src={project.img} alt={project.name} />
                   </div>

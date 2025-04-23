@@ -24,8 +24,8 @@ const Navbar = () => {
       url: "/archive",
     },
     {
-      label: "Information",
-      url: "/information",
+      label: "About",
+      url: "/about",
     },
   ];
 

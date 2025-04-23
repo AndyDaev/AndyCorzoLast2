@@ -1,5 +1,5 @@
 import React from "react";
-import "./Project.css";
+import "./Altavoz.css";
 
 import ParallaxImage from "../../components/ParallaxImage/ParallaxImage";
 import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";

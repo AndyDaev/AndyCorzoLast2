@@ -35,8 +35,8 @@ const Home = () => {
     const stickySection = stickyTitlesRef.current;
     const titles = titlesRef.current.filter(Boolean);
 
-    if (!stickySection || titles.length !== 3) {
-      console.warn("Sticky section or titles missing — skipping scroll animation.");
+    /* if (!stickySection || titles.length !== 3) {
+      null;
     } else {
       // Only run this stuff if titles are present
       gsap.set(titles[0], { opacity: 1, scale: 1 });
@@ -45,7 +45,7 @@ const Home = () => {
 
     gsap.set(titles[0], { opacity: 1, scale: 1 });
     gsap.set(titles[1], { opacity: 0, scale: 0.75 });
-    gsap.set(titles[2], { opacity: 0, scale: 0.75 });
+    gsap.set(titles[2], { opacity: 0, scale: 0.75 }); */
 
     const pinTrigger = ScrollTrigger.create({
       trigger: stickySection,
@@ -352,7 +352,7 @@ const Home = () => {
 
   return (
     <ReactLenis root>
-      <div className="page home">
+      <div className="page home bg-white">
         <section className="hero bg-[#121212]">
           <div className="hero-img ">
           </div>
@@ -366,7 +366,7 @@ const Home = () => {
             </AnimatedCopy>
           </div>
           <section ref={trailContainerRef} className="trail-container">
-            <p>( Move your cursor around and see the magic unfold )</p>
+            <p className="align-middle">( {'\u2728'} Move the cursor to see a glimpse of my work {'\u2728'} )</p>
           </section>
         </section>
 
@@ -374,7 +374,7 @@ const Home = () => {
 
         <section ref={stickyWorkHeaderRef} className="sticky-work-header">
           <AnimatedCopy tag="h1" animateOnScroll="true">
-            Andy Projects
+            My Projects 
           </AnimatedCopy>
         </section>
 
@@ -382,7 +382,7 @@ const Home = () => {
           <div className="home-work-list">
             {workItems.map((work, index) => (
               <Link
-                to="/altavoz"
+                to={work.route}
                 key={work.id}
                 className="home-work-item"
               >
@@ -400,27 +400,27 @@ const Home = () => {
           </div>
         </section>
 
-        <Reviews />
+{/*         <Reviews /> */}
 
         <section className="hobbies">
           <div className="hobby">
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Camera
+              Branding
             </AnimatedCopy>
           </div>
           <div className="hobby">
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Editing
+              UI/UX
             </AnimatedCopy>
           </div>
           <div className="hobby">
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Story
+              Motion Graphics
             </AnimatedCopy>
           </div>
           <div className="hobby">
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Sound
+              3D Design
             </AnimatedCopy>
           </div>
         </section>

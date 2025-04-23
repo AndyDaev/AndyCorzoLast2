@@ -1,6 +1,9 @@
+.page{
+  background-color: #ffffff;
+}
+
 .about-header {
   width: 100%;
-  margin-top: 8em;
   padding: 2em;
   display: flex;
   justify-content: space-between;
@@ -11,6 +14,7 @@
   left: -0.75vw;
   font-size: 24vw;
   line-height: 0.75;
+  padding-top: 4rem;
 }
 
 .about-hero {
@@ -87,7 +91,7 @@
 
 .services-col:nth-child(1) p {
   position: relative;
-  color: var(--bg);
+  color: var(--primary);
   z-index: 1;
 }
 
@@ -186,6 +190,7 @@
   overflow: hidden;
 }
 
+
 .fav-tool-img {
   position: absolute;
   top: 50%;
@@ -198,10 +203,10 @@
 
 .fav-tool h4,
 .fav-tool p {
-  color: var(--bg);
+  color: var(--color-black);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
   .about-header {
     padding: 1.25em;
   }
@@ -210,6 +215,14 @@
   .about-banner-img,
   .fav-tools {
     margin: 1.25em;
+  }
+
+  .about-header h1 {
+    position: relative;
+    left: 15vw;
+    font-size: 24vw;
+    line-height: 0.75;
+    padding-top: 5rem;
   }
 
   .about-me-copy {

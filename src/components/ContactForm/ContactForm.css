@@ -12,7 +12,7 @@
 .contact-form p,
 .contact-form input,
 .contact-form textarea {
-  color: var(--bg);
+  color: var(--primary);
 }
 
 .contact-form input,
@@ -21,7 +21,7 @@
 }
 
 .contact-form .btn {
-  background-color: var(--bg);
+  background-color: var(--primary);
   color: var(--fg);
 }
 
@@ -81,7 +81,7 @@
   display: flex;
   justify-content: space-between;
   gap: 1em;
-  border-top: 1px dashed var(--bg);
+  border-top: 1px dashed var(--primary);
   padding: 0.5em 0;
 }
 

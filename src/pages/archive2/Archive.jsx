@@ -3,7 +3,7 @@ import { ReactLenis } from "lenis/react";
 
 import "./Archive.css";
 
-import Transition from "../../components/transition/Transition";
+import Transition from "../../components/Transition/Transition";
 import Preview from "../../components/preview/Preview";
 
 import gsap from "gsap";

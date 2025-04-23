@@ -4,7 +4,7 @@ import { useLocation  } from "react-router-dom";
 
 import "./SampleProject.css";
 
-import Transition from "../../components/Transition/Transition";
+import Transition from "../../components/Transition/Transition" ;
 
 import ProjectHeroImg from "../../assets/sample-projects/sample-project-hero-2.jpg";
 import ProjectHeroImg2 from "../../assets/sample-projects/sample-project-hero-3.jpg";

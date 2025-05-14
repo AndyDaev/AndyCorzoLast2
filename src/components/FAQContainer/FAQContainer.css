@@ -43,6 +43,10 @@
   letter-spacing: 0em;
   line-height: 1.5rem;
   user-select: none;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .faq-icon {
@@ -64,6 +68,10 @@
   word-wrap: break-word;
   white-space: normal;
   will-change: transform, opacity;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @media (max-width: 1000px) {

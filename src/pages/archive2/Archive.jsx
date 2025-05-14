@@ -1,10 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import { ReactLenis } from "lenis/react";
-
+import { LanguageContext } from "../../context/LanguageContext";
 import "./Archive.css";
 
 import Transition from "../../components/Transition/Transition";
 import Preview from "../../components/preview/Preview";
+import { archivesEN, archivesES } from "../../data/archivesList";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,24 +14,11 @@ gsap.registerPlugin(ScrollTrigger);
 const Archive = () => {
   const [archiveList, setArchiveList] = useState([]);
   const containerRef = useRef(null);
-
-  const archives = [
-    { name: "Vintage Visions", category: "Print Design" },
-    { name: "Lost Horizons", category: "Concept Art" },
-    { name: "Eternal Echoes", category: "Typography" },
-    { name: "Abstract Dimensions", category: "Experimental Media" },
-    { name: "Silent Stories", category: "Photography" },
-    { name: "Fading Memories", category: "Editorial Design" },
-    { name: "Echo Chamber", category: "Sound Design" },
-    { name: "Shattered Glass", category: "Art Installations" },
-    { name: "Timeless Essence", category: "Brand Strategy" },
-    { name: "Parallel Worlds", category: "UX/UI Design" },
-    { name: "Invisible Threads", category: "Fashion Styling" },
-    { name: "Beyond the Surface", category: "Augmented Reality" },
-  ];
-
+  const { language } = useContext(LanguageContext);
+  const archives = language === "EN" ? archivesEN : archivesES;
+  
   useEffect(() => {
-    const initialSet = Array(120)
+    const initialSet = Array(60)
       .fill()
       .flatMap((_, i) =>
         archives.map((archive, j) => ({
@@ -40,7 +28,7 @@ const Archive = () => {
         }))
       );
     setArchiveList(initialSet);
-  }, []);
+  }, [archives]);
 
   useEffect(() => {
     if (containerRef.current && archiveList.length > 0) {
@@ -85,8 +73,6 @@ const Archive = () => {
         style={{
           height: "100vh",
           top: "-25em",
-          //  overflowY: "auto"
-          // to enable infinite scrolling, uncomment `overflowY: "auto"` and remove the <ReactLenis root> component from root
         }}
       >
         <div className="container">

@@ -9,13 +9,13 @@ const calculateRandomBlockDelay = (rowIndex, totalRows) => {
 
 const Transition = (Page) => {
   return () => (
-    <>
+    <div className="transition-root">
       <Page />
 
       <div className="blocks-container transition-in">
         {Array.from({ length: 10 }).map((_, rowIndex) => (
           <div className="row" key={rowIndex}>
-            {Array.from({ length: 11 }).map((_, blockIndex) => (
+            {Array.from({ length: 13 }).map((_, blockIndex) => (
               <motion.div
                 key={blockIndex}
                 className="block"
@@ -36,7 +36,7 @@ const Transition = (Page) => {
       <div className="blocks-container transition-out">
         {Array.from({ length: 10 }).map((_, rowIndex) => (
           <div className="row" key={rowIndex}>
-            {Array.from({ length: 11 }).map((_, blockIndex) => (
+            {Array.from({ length: 13 }).map((_, blockIndex) => (
               <motion.div
                 key={blockIndex}
                 className="block"
@@ -53,7 +53,7 @@ const Transition = (Page) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

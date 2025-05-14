@@ -134,3 +134,24 @@
     gap: 0.25em;
   }
 }
+
+.status-message {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-weight: 500;
+}
+
+.status-message.success {
+  opacity: 1;
+  color: #4CAF50;
+}
+
+.status-message.error {
+  opacity: 1;
+  color: #f44336;
+}
+
+.status-message.sending {
+  opacity: 1;
+  color: #2196F3;
+}

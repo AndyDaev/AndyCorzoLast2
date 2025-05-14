@@ -1,3 +1,9 @@
+.transition-root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
 .blocks-container {
   position: fixed;
   top: 0;
@@ -14,13 +20,17 @@
   flex: 1;
   width: 100%;
   display: flex;
+  margin: 0;
+  padding: 0rem;
 }
 
 .block {
   position: relative;
   flex: 1;
   background: rgba(255, 68, 0, 1);
-  margin: -0.25px;
+  margin: 0;
+  min-width: calc(100% / 13);
+  transform-origin: top;
 }
 
 .transition-in .block {

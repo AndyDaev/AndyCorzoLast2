@@ -1,0 +1,51 @@
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 9999;
+  mix-blend-mode: difference;
+  will-change: transform, width, height;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.custom-cursor.active {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(230, 67, 8, 0.961);
+}
+
+/* Hide default cursor for all interactive elements */
+a, button, .nav-link, .home-work-item, [role="button"] {
+  cursor: none !important;
+}
+
+/* Ensure the cursor is visible on all backgrounds */
+.custom-cursor {
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Add a subtle animation when the cursor becomes active */
+@keyframes cursorPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.custom-cursor.active {
+  animation: cursorPulse 1s ease-in-out infinite;
+} 

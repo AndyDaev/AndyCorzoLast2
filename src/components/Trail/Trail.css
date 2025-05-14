@@ -1,0 +1,38 @@
+.trail-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.trail-container p {
+  color: white;
+  text-align: center;
+  font-family: "Messina Sans", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 3;
+}
+
+.trail-img {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+} 

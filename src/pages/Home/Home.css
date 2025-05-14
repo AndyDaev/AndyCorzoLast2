@@ -21,7 +21,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  z-index: 1;
 }
 
 .hero-header h1 {
@@ -76,6 +75,7 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
+  z-index: 1; /* Keep header behind work items */
 }
 
 .sticky-work-header h1 {
@@ -86,6 +86,8 @@
 .home-work {
   width: 100%;
   padding: 8em 2em;
+  position: relative;
+  z-index: 10; /* Ensure work items appear on top */
 }
 
 .home-work-list {
@@ -94,6 +96,7 @@
   display: flex;
   flex-direction: column;
   gap: 8em;
+  position: relative; /* Added positioning context */
 }
 
 .home-work-item {
@@ -103,6 +106,14 @@
   align-items: center;
   text-align: center;
   gap: 2em;
+  position: relative;
+}
+
+/* Add proper spacing for work item images */
+.work-item-img {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
 }
 
 .hobbies {
@@ -153,6 +164,7 @@
   pointer-events: none;
 }
 
+/* Improved responsive design */
 @media (max-width: 1000px) {
   .hero,
   .sticky-titles,
@@ -165,16 +177,21 @@
     width: 90%;
   }
 
+  .sticky-work-header {
+    height: 40vh; /* Increased from 20vh to 40vh for better mobile visibility */
+  }
+
   .hobbies {
     padding-bottom: 0;
   }
 
   .home-work {
-    padding: 8em 1.25em;
+    padding: 1em 1.25em 4em 1.25em;
   }
 
   .home-work-list {
     width: 100%;
+    gap: 4em; /* Reduced gap on mobile */
   }
 
   .hobbies {
@@ -184,5 +201,91 @@
 
   .hobby {
     aspect-ratio: 5/3;
+  }
+}
+
+/* Base scrolling setup */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* For IE and Edge */
+* {
+  -ms-overflow-style: none;
+}
+
+/* ReactLenis setup */
+.lenis {
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Main content container */
+.page {
+  position: relative;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Ensure sections allow scrolling */
+
+
+/* Improved scroll-to-top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #121212;
+  color: white;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background-color: #2a2a2a;
+  transform: translateY(-2px);
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }

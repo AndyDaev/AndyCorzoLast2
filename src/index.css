@@ -190,3 +190,9 @@ textarea::placeholder {
 
 /* New navbar */
 
+/* Hide default cursor for interactive elements */
+.nav-link,
+.home-work-item {
+  cursor: none !important;
+}
+

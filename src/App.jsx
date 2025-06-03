@@ -1,51 +1,52 @@
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-
-import Menu from "./components/Menu/Menu";
-
-import Home from "./pages/Home/Home";
-import Work from "./pages/Work/Work";
-import Project from "./pages/Project/Project";
-import About from "./pages/About/About";
-import FAQ from "./pages/FAQ/FAQ";
-import Contact from "./pages/Contact/Contact";
-
-import { AnimatePresence } from "framer-motion";
-import Altavoz from "./pages/Project/Altavoz";
-import Navbar from "./components/navbar/Navbar";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 1400);
-  }, [pathname]);
-
-  return null;
-}
+import { useEffect, useState } from "react";
 
 function App() {
-  const location = useLocation();
+  const [language, setLanguage] = useState('en');
+
+  useEffect(() => {
+    // Get browser language and set it to either 'es' or 'en'
+    const browserLang = navigator.language.toLowerCase();
+    console.log('Browser language:', browserLang);
+    
+    // Check if the language starts with 'es' (for Spanish)
+    const isSpanish = browserLang.startsWith('es');
+    console.log('Is Spanish?', isSpanish);
+    
+    setLanguage(isSpanish ? 'es' : 'en');
+  }, []);
+
+  const messages = {
+    en: {
+      title: "🚧 Work in Progress 🚧",
+      subtitle: "We're currently working on something amazing. Please check back soon!"
+    },
+    es: {
+      title: "🚧 Sitio en Construcción 🚧",
+      subtitle: "Estamos trabajando en algo increíble. ¡Vuelve pronto!"
+    }
+  };
+
+  // Force language for testing - remove this in production
+  const forceLanguage = 'es'; // Change this to 'en' or 'es' to test different languages
 
   return (
-    <>
-      <ScrollToTop />
-      <Navbar />
- {/*      <Menu /> */}
-      <AnimatePresence mode="wait" initial={false}>
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/altavoz" element={<Altavoz />} />
-        </Routes>
-      </AnimatePresence>
-    </>
+    <div style={{
+      height: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#000',
+      color: '#fff',
+      fontFamily: 'system-ui, -apple-system, sans-serif',
+      textAlign: 'center',
+      padding: '20px'
+    }}>
+      <div>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{messages[forceLanguage].title}</h1>
+        <p style={{ fontSize: '1.2rem', opacity: 0.8 }}>{messages[forceLanguage].subtitle}</p>
+      </div>
+    </div>
   );
 }
 

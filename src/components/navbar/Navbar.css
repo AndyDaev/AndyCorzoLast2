@@ -123,6 +123,11 @@
   transform: translateY(-1px);
 }
 
+/* Hide the Archive link in the left nav group */
+.nav-links-left .nav-link:nth-child(3) {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .navbar {
     padding: 1em;

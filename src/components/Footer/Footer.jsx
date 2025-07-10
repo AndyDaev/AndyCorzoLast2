@@ -13,6 +13,7 @@ const ES = {
   footerWork: "Trabajos",
   footerAbout: "Sobre mí",
   footerContact: "Contacto",
+  footerLegal:"Legal",
   footerFAQ: "Preguntas frecuentes",
   footerHeader: "Andy",
   footerFooter: "Corzo",
@@ -37,67 +38,93 @@ const EN = {
   footerCreated: "Created by AndyCorzo"
 };
 
+const miniFooterLinks = [
+  {
+    key: "cookies",
+    path: "/cookies",
+    labelES: "Cookies",
+    labelEN: "Cookies"
+  },
+  {
+    key: "legal",
+    path: "/legal",
+    labelES: "Aviso Legal",
+    labelEN: "Legal Advice"
+  },
+  {
+    key: "privacy",
+    path: "/privacy",
+    labelES: "Privacidad",
+    labelEN: "Privacy"
+  }
+];
+
 const Footer = () => {
   const { language } = useContext(LanguageContext);
   const langObj = language === "EN" ? EN : ES;
 
   return (
-    <div className="footer">
-      <div className="footer-row">
-        <div className="footer-contact">
-          <h3 className="primary">
-            {langObj.primary} <br />
-            {langObj.mail}
-          </h3>
+    <>
+      <div className="footer">
+        <div className="footer-row">
+          <div className="footer-contact">
+            <h3 className="primary">
+              {langObj.primary} <br />
+              {langObj.mail}
+            </h3>
 
-          <p className="secondary">
-            {langObj.secondary}
-          </p>
+            <p className="secondary">
+              {langObj.secondary}
+            </p>
 
-          <Link to="/contact" className="btn">
-            {langObj.message}
-          </Link>
+            <Link to="/contact" className="btn">
+              {langObj.message}
+            </Link>
+          </div>
+
+          <div className="footer-nav">
+            <Link to="/" className="footer-nav-item">
+              <span>{langObj.footerHome}</span>
+              <span>&#8594;</span>
+            </Link>
+
+            <Link to="/work" className="footer-nav-item">
+              <span>{langObj.footerWork}</span>
+              <span>&#8594;</span>
+            </Link>
+
+            <Link to="/about" className="footer-nav-item">
+              <span>{langObj.footerAbout}</span>
+              <span>&#8594;</span>
+            </Link>
+
+            <Link to="/contact" className="footer-nav-item">
+              <span>{langObj.footerContact}</span>
+              <span>&#8594;</span>
+            </Link>
+
+          </div>
         </div>
+        <div className="footer-row">
+          <div className="footer-header">
+            <h1>{langObj.footerHeader}</h1>
+            <h1>{langObj.footerFooter}</h1>
+          </div>
 
-        <div className="footer-nav">
-          <Link to="/" className="footer-nav-item">
-            <span>{langObj.footerHome}</span>
-            <span>&#8594;</span>
-          </Link>
-
-          <Link to="/work" className="footer-nav-item">
-            <span>{langObj.footerWork}</span>
-            <span>&#8594;</span>
-          </Link>
-
-          <Link to="/about" className="footer-nav-item">
-            <span>{langObj.footerAbout}</span>
-            <span>&#8594;</span>
-          </Link>
-
-          <Link to="/contact" className="footer-nav-item">
-            <span>{langObj.footerContact}</span>
-            <span>&#8594;</span>
-          </Link>
-
-          <Link to="/faq" className="footer-nav-item">
-            <span>{langObj.footerFAQ}</span>
-            <span>&#8594;</span>
-          </Link>
-        </div>
-      </div>
-      <div className="footer-row">
-        <div className="footer-header">
-          <h1>{langObj.footerHeader}</h1>
-          <h1>{langObj.footerFooter}</h1>
-        </div>
-
-        <div className="footer-copyright-line">
-          <p className="primary sm">{langObj.footerCopyright}</p>
-          <p className="primary sm">{langObj.footerCreated}</p>
+          <div className="footer-copyright-line">
+            <p className="primary sm">{langObj.footerCopyright}</p>
+            <p className="primary sm">{langObj.footerCreated}</p>
+          </div>
         </div>
       </div>
-    </div>
+      <div className="mini-footer">
+        {miniFooterLinks.map(link => (
+          <Link key={link.key} to={link.path} className="mini-footer-link">
+            {language === "EN" ? link.labelEN : link.labelES}
+          </Link>
+        ))}
+      </div>
+    </>
   );
 };
 

@@ -1,32 +1,44 @@
 import { Link, useParams } from "react-router-dom";
 import { ReactLenis } from "lenis/react";
-import { useLocation } from "react-router-dom";
 import { IKImage, IKContext } from 'imagekitio-react';
 import { useContext } from 'react';
 import { LanguageContext } from "../../context/LanguageContext";
-import { workListEN, workListES } from "../../data/workList";
 import "./ProjectAltavoz.css";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 import Transition from "../../components/Transition/Transition";
 
-const ProjectHeroImg = "https://ik.imagekit.io/andycorzowork/Projects/sample-projects/sample-project-2.jpg?updatedAt=1747154460806";
-const ProjectHeroImg2 = "https://ik.imagekit.io/andycorzowork/Projects/sample-projects/sample-project-hero-3.jpg?updatedAt=1747154460806";
-const ProjectHeroImg3 = "https://ik.imagekit.io/andycorzowork/Projects/sample-projects/sample-project-hero.jpg?updatedAt=1747154460806";
-const ProjectImg1 = "https://ik.imagekit.io/andycorzowork/Projects/sample-projects/sample-project-1.jpg?updatedAt=1747154460806";
-const ProjectImg2 = "https://ik.imagekit.io/andycorzowork/Projects/sample-projects/sample-project-2.jpg?updatedAt=1747154460806";
-const ProjectImg3 = "https://ik.imagekit.io/andycorzowork/Projects/sample-projects/sample-project-3.jpg?updatedAt=1747154460806";
-const ProjectImg4 = "https://ik.imagekit.io/andycorzowork/Projects/sample-projects/sample-project-4.jpg?updatedAt=1747154460806";
+const ProjectHeroImg = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-15.webp?updatedAt=1748868773545";
+const ProjectHeroVideo = "/assets/Vision/Animacion_Sonido.mp4";
+const ProjectHeroImg3 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-16.webp?updatedAt=1748868773725";
+const ProjectImg1 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-15.webp?updatedAt=1748868773545";
+const ProjectImg2 = "/assets/Vision/Animacion_Sonido.mp4";
+const ProjectImg3 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-16.webp?updatedAt=1748868773725";
+const ProjectImg4 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-2.webp?updatedAt=1748868771589";
+const ProjectImg5 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_.webp?updatedAt=1748868774610";
+const ProjectImg6 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-1.webp?updatedAt=1748868771656";
+const ProjectImg7 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-3.webp?updatedAt=1748868771679";
+const ProjectImg8 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-4.webp?updatedAt=1748868771348";
+const ProjectImg9 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-5.webp?updatedAt=1748868771520";
+const ProjectImg10 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-6.webp?updatedAt=1748868771767";
+const ProjectImg11 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-8.webp?updatedAt=1748868771689";
+const ProjectImg12 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-3.webp?updatedAt=1748868771679";
+const ProjectImg13 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-13.webp?updatedAt=1748868771437";
+const ProjectImg14 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-11.webp?updatedAt=1750089562924";
+const ProjectImg15 = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-12.webp?updatedAt=1748868771571";
+const ProjectImgPoster = "https://ik.imagekit.io/andycorzowork/Projects/Project_VisionFest/Image%20_w-full_-14.webp?updatedAt=1748868773623"
 
 const ES = {
   client: "Cliente",
   studio: "Estudio",
   year: "Año",
   copy: "Vision Fest: \n Festival Hyperpop",
-  nextProject: "Proyecto siguiente",
+  nextProject: "Siguiente Proyecto",
   projectTitle: "Vision Fest - Festival Hyperpop!",
-  projectDescription: "Una campaña visual que celebra la energía y la creatividad del movimiento hyperpop. A través de un diseño audaz y colorido, hemos creado una identidad que captura la esencia de este género musical emergente, fusionando elementos digitales y analógicos para crear una experiencia visual única.",
-  ProjectText1: "Vision Fest es un festival que busca revolucionar la escena musical local, trayendo lo mejor del hyperpop a la ciudad. El diseño de marca incluye elementos visuales que reflejan la naturaleza experimental y vanguardista del género, desde la tipografía hasta la paleta de colores.",
-  ProjectText2: "La campaña se centra en la creación de una experiencia inmersiva que conecta con la audiencia joven y digital. Cada elemento, desde el diseño de la identidad hasta la implementación en redes sociales, ha sido cuidadosamente diseñado para transmitir la energía y la innovación que define al Vision Fest.",
+  projectDescription: "Una marca acompañada de una campaña visual que demuestra la creativida y originalidad del movimiento hyperpop. A través de un diseño moderno, tecnológico y colorido, hemos creado una identidad que captura la esencia de este género musical emergente, fusionando elementos digitales y analógicos para crear una experiencia visual única.",
+  ProjectText1: "Vision Fest nace como respuesta a la necesidad de un espacio dedicado al hyperpop en la escena musical local. Este género, caracterizado por su estética futurista y sonidos experimentales, requería una identidad visual que estuviera a la altura de su innovación sonora. El diseño incorpora elementos glitch, gradientes vibrantes y tipografías distorsionadas que reflejan la naturaleza disruptiva del hyperpop.",
+  ProjectText2: "La estrategia visual se basa en la creación de un universo digital que trasciende las pantallas. Desde el diseño de pósters hasta la implementación en redes sociales, cada pieza comunica la energía frenética y la estética cyber que define al género. Los colores neón, las formas fragmentadas y las animaciones dinámicas crean una experiencia inmersiva que conecta directamente con la generación digital nativa.",
+  ProjectText3: "El resultado es una identidad que no solo promociona un festival, sino que establece un nuevo estándar visual para eventos de música electrónica experimental. La marca Vision Fest se convierte en un símbolo de innovación cultural, atrayendo tanto a artistas emergentes como a una audiencia ávida de experiencias musicales auténticas y vanguardistas.",
   projectYear: "2025",
   projectClient: "Vision Fest",
   projectStudio: "Creative Works",
@@ -43,8 +55,9 @@ const EN = {
   nextProject: "Next Project",
   projectTitle: "Vision Fest - Hyperpop Festival!",
   projectDescription: "A visual campaign celebrating the energy and creativity of the hyperpop movement. Through bold and colorful design, we've created an identity that captures the essence of this emerging music genre, fusing digital and analog elements to create a unique visual experience.",
-  ProjectText1: "Vision Fest is a festival that aims to revolutionize the local music scene, bringing the best of hyperpop to the city. The brand design includes visual elements that reflect the experimental and avant-garde nature of the genre, from typography to color palette.",
-  ProjectText2: "The campaign focuses on creating an immersive experience that connects with a young and digital audience. Each element, from identity design to social media implementation, has been carefully crafted to convey the energy and innovation that defines Vision Fest.",
+  ProjectText1: "Vision Fest emerges as a response to the need for a dedicated space for hyperpop in the local music scene. This genre, characterized by its futuristic aesthetic and experimental sounds, required a visual identity that matched its sonic innovation. The design incorporates glitch elements, vibrant gradients, and distorted typography that reflect the disruptive nature of hyperpop.",
+  ProjectText2: "The visual strategy is based on creating a digital universe that transcends screens. From poster design to social media implementation, each piece communicates the frenetic energy and cyber aesthetic that defines the genre. Neon colors, fragmented shapes, and dynamic animations create an immersive experience that connects directly with the digital native generation.",
+  ProjectText3: "The result is an identity that not only promotes a festival, but establishes a new visual standard for experimental electronic music events. The Vision Fest brand becomes a symbol of cultural innovation, attracting both emerging artists and an audience eager for authentic and avant-garde musical experiences.",
   projectYear: "2025",
   projectClient: "Vision Fest",
   projectStudio: "Creative Works",
@@ -57,11 +70,10 @@ const Project1_VisionFest = () => {
   const { id } = useParams();
   const { language } = useContext(LanguageContext);
   const langObj = language === "EN" ? EN : ES;
-  const workList = language === "EN" ? workListEN : workListES;
   
   // Get the current project ID and calculate the next project ID
   const currentId = parseInt(id);
-  const nextId = currentId + 1 > 5 ? 1 : currentId + 1;
+  const nextId = currentId + 1 >= 4 ? 0 : currentId + 1;
 
   return (
     <IKContext
@@ -70,22 +82,24 @@ const Project1_VisionFest = () => {
       transformationPosition="path"
     >
       <ReactLenis root>
+        <ScrollToTop />
         <div className="project">
           <div className="conainer">
-            <div className="project-hero-img">
+            <div className="project-hero-img img" style={{ width: '100vw', maxWidth: '100vw', minHeight: '40vh', height: '50vh', overflow: 'hidden', position: 'relative' }}>
               <IKImage
                 src={ProjectHeroImg}
                 transformation={[
                   {
-                    height: 800,
-                    width: 1200,
-                    quality: 100,
+                    load: 'fast',
+                    quality: 80,
                     format: "auto"
                   }
                 ]}
                 lqip={{ active: true, quality: 90 }}
                 alt="Project Hero Img"
-                className="w-full h-full object-cover"
+                className="object-cover"
+                style={{ width: '100vw', maxWidth: '100vw', height: '100%', minHeight: '40vh', objectFit: 'cover', display: 'block' }}
+                loading="lazy"
               />
             </div>
 
@@ -132,135 +146,279 @@ const Project1_VisionFest = () => {
               </div>
             </div>
 
-            <div className="project-hero-img-2">
-              <IKImage
-                src={ProjectHeroImg2}
-                transformation={[
-                  {
-                    height: 800,
-                    width: 1200,
-                    quality: 80,
-                    format: "auto"
-                  }
-                ]}
-                lqip={{ active: true, quality: 20 }}
-                alt="Project Hero Img 2"
-                className="w-full h-full object-cover"
-              />
+
+            <div className="project-video">
+              <div className="img full-height-video-container">
+                <video
+                  src={ProjectImg2}
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </div>
             </div>
+
 
             <div className="project-copy">
               <div className="col"></div>
 
               <div className="col text-[var(--primary)]">
                 <p>
-                  {langObj.projectDescription}
+                  {langObj.ProjectText1}
                 </p>
               </div>
             </div>
 
+           
+
             <div className="project-imgs">
-              <div className="img">
+              <div className="img w-full">
                 <IKImage
-                  src={ProjectImg1}
+                  src={ProjectImgPoster}
                   transformation={[
                     {
-                      height: 600,
-                      width: 900,
+                      load: 'fast',
                       quality: 80,
                       format: "auto"
                     }
                   ]}
-                  lqip={{ active: true, quality: 20 }}
-                  alt="Project Image 1"
-                  className="w-full h-full object-cover"
+                  lqip={{ active: true, quality: 100 }}
+                  alt="Project Image 2"
+                  className="w-full h-auto"
+                  loading="lazy"
                 />
-              </div>
-
-              <div className="img">
-                <IKImage
-                  src={ProjectImg4}
-                  transformation={[
-                    {
-                      height: 600,
-                      width: 900,
-                      quality: 80,
-                      format: "auto"
-                    }
-                  ]}
-                  lqip={{ active: true, quality: 20 }}
-                  alt="Project Image 4"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="project-copy">
-              <div className="col"></div>
-
-              <div className="col text-[var(--primary)]">
-                <p>
-                  {langObj.projectDescription}
-                </p>
               </div>
             </div>
 
             <div className="project-imgs">
-              <div className="img">
+              <div className="img2 w-full aspect-auto">
                 <IKImage
                   src={ProjectImg3}
                   transformation={[
                     {
-                      height: 600,
-                      width: 900,
-                      quality: 80,
-                      format: "auto"
+                      width: 2160,
+                      height: 4181,
+                      quality: 100,
+                      format: "webp",
                     }
                   ]}
-                  lqip={{ active: true, quality: 20 }}
+                  lqip={{ active: true, quality: 90 }}
                   alt="Project Image 3"
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto object-contain"
                 />
               </div>
+            </div>
 
-              <div className="img">
+            <div className="project-copy">
+              <div className="col"></div>
+
+              <div className="col text-[var(--primary)]">
+                <p>
+                  {langObj.ProjectText2}
+                </p>
+              </div>
+            </div>
+
+            <div className="project-imgs">
+              <div className="img w-full">
                 <IKImage
-                  src={ProjectImg2}
+                  src={ProjectImg4}
                   transformation={[
                     {
-                      height: 600,
-                      width: 900,
-                      quality: 80,
-                      format: "auto"
+                      quality: 100,
+                      format: "webp"
                     }
                   ]}
-                  lqip={{ active: true, quality: 20 }}
-                  alt="Project Image 2"
-                  className="w-full h-full object-cover"
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 4"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
 
-            <div className="project-hero-img-3">
-              <IKImage
-                src={ProjectHeroImg3}
-                transformation={[
-                  {
-                    height: 800,
-                    width: 1200,
-                    quality: 80,
-                    format: "auto"
-                  }
-                ]}
-                lqip={{ active: true, quality: 20 }}
-                alt="Project Hero Img 3"
-                className="w-full h-full object-cover"
-              />
+            <div className="project-imgs">
+              <div className="img w-full">
+                <IKImage
+                  src={ProjectImg5}
+                  transformation={[
+                    {
+                      quality: 100,
+                      format: "webp"
+                    }
+                  ]}
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 5"
+                  className="w-full h-auto"
+                />
+              </div>
             </div>
 
-            <div className="next-project-cta">
-              <Link to={`/project/${nextId}`}>
-                <h1 className="text-[var(--primary)]">{langObj.nextProject}</h1>
+            <div className="project-imgs">
+              <div className="img2 w-full">
+                <IKImage
+                  src={ProjectImg6}
+                  transformation={[
+                    {
+                      quality: 100,
+                      format: "webp"
+                    }
+                  ]}
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 6"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <div className="project-imgs">
+              <div className="img w-full">
+                <IKImage
+                  src={ProjectImg7}
+                  transformation={[
+                    {
+                      quality: 100,
+                      format: "webp"
+                    }
+                  ]}
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 7"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <div className="project-imgs">
+              <div className="img2 w-full">
+                <IKImage
+                  src={ProjectImg8}
+                  transformation={[
+                    {
+                      quality: 100,
+                      format: "webp"
+                    }
+                  ]}
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 8"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <div className="project-imgs">
+              <div className="img2 w-full">
+                <IKImage
+                  src={ProjectImg9}
+                  transformation={[
+                    {
+                      quality: 100,
+                      format: "webp"
+                    }
+                  ]}
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 9"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <div className="project-imgs">
+              <div className="img2 w-full">
+                <IKImage
+                  src={ProjectImg10}
+                  transformation={[
+                    {
+                      quality: 100,
+                      format: "webp"
+                    }
+                  ]}
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 10"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <div className="project-imgs">
+              <div className="img2 w-full">
+                <IKImage
+                  src={ProjectImg11}
+                  transformation={[
+                    {
+                      quality: 100,
+                      format: "webp"
+                    }
+                  ]}
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 11"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+           
+
+            <div className="project-imgs">
+              <div className="img2 w-full">
+                <IKImage
+                  src={ProjectImg13}
+                  transformation={[
+                    {
+                      quality: 100,
+                      format: "webp"
+                    }
+                  ]}
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 13"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <div className="project-imgs">
+              <div className="img2 w-full">
+                <IKImage
+                  src={ProjectImg14}
+                  transformation={[
+                    {
+                      quality: 100,
+                      format: "webp"
+                    }
+                  ]}
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 14"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <div className="project-imgs">
+              <div className="img2 w-full">
+                <IKImage
+                  src={ProjectImg15}
+                  transformation={[
+                    {
+                      quality: 100,
+                      format: "webp"
+                    }
+                  ]}
+                  lqip={{ active: true, quality: 90 }}
+                  alt="Project Image 15"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <div className="next-project-cta" style={{ flexDirection: 'column', gap: '0.5rem', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+              <Link to={`/project/${nextId}`} style={{ textDecoration: 'none' }}>
+                <h1 className="text-[var(--primary)]" style={{ fontSize: '4.5rem', fontWeight: 'bold' }}>{langObj.nextProject}</h1>
+              </Link>
+              <Link to={`/project/${(currentId - 1 + 5) % 5}`} style={{ textDecoration: 'none', marginTop: '0.5rem' }}>
+                <span style={{ fontSize: '2.2rem', color: 'var(--primary)', opacity: 0.85, fontWeight: 'normal' }}>
+                  &larr; {language === 'EN' ? 'Previous Project' : 'Proyecto Anterior'}
+                </span>
               </Link>
             </div>
           </div>
@@ -271,4 +429,4 @@ const Project1_VisionFest = () => {
 };
 
 const Project1_VisionFestPage = Transition(Project1_VisionFest);
-export default Project1_VisionFestPage; 
+export default Project1_VisionFestPage;

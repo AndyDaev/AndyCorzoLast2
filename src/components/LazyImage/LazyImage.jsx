@@ -3,7 +3,7 @@ import React from 'react';
 const LazyImage = ({ 
   src, 
   srcSet, 
-  alt, 
+  alt = 'Imagen cargada de forma diferida', 
   className, 
   sizes = '100vw',
   loading = 'lazy'

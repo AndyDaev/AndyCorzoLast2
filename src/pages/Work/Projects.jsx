@@ -9,26 +9,25 @@ import Transition from "../../components/Transition/Transition";
 import { LanguageContext } from "../../context/LanguageContext";
 import "./Projects.css";
 
-// Separate static and animated versions of images
+// Separate static and animated versions of images/videos
 const ProjectImg1 = {
-  static: "https://ik.imagekit.io/andycorzowork/default-image.jpg?updatedAt=1746036225150",
-  gif: "https://ik.imagekit.io/andycorzowork/1697428676765.gif?updatedAt=1747161996892"
+  static: "https://ik.imagekit.io/andycorzowork/Home/Altavoz_Home.webp?updatedAt=1748350443241",
+  video: "/assets/Altavoz_PresentacionMarca (online-video-cutter.mp4"
 };
 const ProjectImg2 = {
-  static: "https://ik.imagekit.io/andycorzowork/default-image.jpg?updatedAt=1746036225150",
-  gif: "https://ik.imagekit.io/andycorzowork/1697428676765.gif?updatedAt=1747161996892"
+  static: "https://ik.imagekit.io/andycorzowork/Home/VisionFest_Home.webp?updatedAt=1748305666949",
+  video: "/assets/Vision/Animacion_Sonido.mp4"
 };
 const ProjectImg3 = {
-  static: "https://ik.imagekit.io/andycorzowork/default-image.jpg?updatedAt=1746036225150",
-  gif: "https://ik.imagekit.io/andycorzowork/1697428676765.gif?updatedAt=1747161996892"
+  static: "https://ik.imagekit.io/andycorzowork/Work/Okami_Work.png?updatedAt=1750491072397",
+  video: "/assets/Okami/1213_AndresLC_LogoFondoAnimado.mp4"
 };
 const ProjectImg4 = {
-  static: "https://ik.imagekit.io/andycorzowork/default-image.jpg?updatedAt=1746036225150",
-  gif: "https://ik.imagekit.io/andycorzowork/1697428676765.gif?updatedAt=1747161996892"
+  static: "https://ik.imagekit.io/andycorzowork/Work/Frame%2050.png?updatedAt=1750491733907",
+  video: "/assets/Tonkati/Comp 1.mp4"
 };
 const ProjectImg5 = {
-  static: "https://ik.imagekit.io/andycorzowork/default-image.jpg?updatedAt=1746036225150",
-  gif: "https://ik.imagekit.io/andycorzowork/1697428676765.gif?updatedAt=1747161996892"
+  static: "https://ik.imagekit.io/andycorzowork/Work/Frame%2051.png?updatedAt=1750491878366"
 };
 const ProjectImg6 = {
   static: "https://ik.imagekit.io/andycorzowork/default-image.jpg?updatedAt=1746036225150",
@@ -62,7 +61,7 @@ const projectsDataEN = [
   },
   {
     id: 4,
-    name: "Royal Canin New Beginnings",
+    name: "Gijón Throwdown - Crossfit Competition",
     category: "REBRANDING WORK",
     img: ProjectImg5,
   },
@@ -94,7 +93,7 @@ const projectsDataES = [
   },
   {
     id: 4,
-    name: "Royal Canin New Beginnings",
+    name: "Gijón Throwdown - Competición de Crossfit",
     category: "REBRANDING WORK",
     img: ProjectImg5,
   },
@@ -175,15 +174,17 @@ const Projects = () => {
   const handleMouseEnter = (e) => {
     const container = e.currentTarget;
     const staticImg = container.querySelector('.static-img');
-    const gifImg = container.querySelector('.gif-img');
+    const video = container.querySelector('video.video-preview');
     
-    if (staticImg && gifImg) {
+    if (staticImg && video) {
       gsap.to(staticImg, {
         opacity: 0,
         duration: 0.3,
         onComplete: () => {
-          gifImg.style.display = 'block';
-          gsap.to(gifImg, {
+          video.style.display = 'block';
+          video.currentTime = 0;
+          video.play();
+          gsap.to(video, {
             opacity: 1,
             duration: 0.3
           });
@@ -195,14 +196,15 @@ const Projects = () => {
   const handleMouseLeave = (e) => {
     const container = e.currentTarget;
     const staticImg = container.querySelector('.static-img');
-    const gifImg = container.querySelector('.gif-img');
+    const video = container.querySelector('video.video-preview');
     
-    if (staticImg && gifImg) {
-      gsap.to(gifImg, {
+    if (staticImg && video) {
+      gsap.to(video, {
         opacity: 0,
         duration: 0.3,
         onComplete: () => {
-          gifImg.style.display = 'none';
+          video.pause();
+          video.style.display = 'none';
           gsap.to(staticImg, {
             opacity: 1,
             duration: 0.3
@@ -254,25 +256,20 @@ const Projects = () => {
                         lqip={{ active: true, quality: 20 }}
                         alt={project.name}
                         className="static-img w-full h-full object-cover"
-                        loading="eager"
+                        loading="lazy"
                       />
                       {/* GIF image */}
-                      <IKImage
-                        src={project.img.gif}
-                        transformation={[
-                          {
-                            height: 500,
-                            width: 800,
-                            quality: 80,
-                            format: "auto"
-                          }
-                        ]}
-                        lqip={{ active: true, quality: 20 }}
-                        alt={project.name}
-                        className="gif-img w-full h-full object-cover absolute top-0 left-0 opacity-0"
-                        loading="lazy"
-                        style={{ display: 'none' }}
-                      />
+                      {project.img.video && (
+                        <video
+                          src={project.img.video}
+                          className="video-preview gif-img w-full h-full object-cover absolute top-0 left-0 opacity-0"
+                          muted
+                          loop
+                          playsInline
+                          preload="auto"
+                          style={{ display: 'none' }}
+                        />
+                      )}
                     </div>
                   </Link>
                   <div className="project-info">

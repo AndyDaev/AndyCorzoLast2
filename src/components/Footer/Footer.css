@@ -92,6 +92,31 @@
   text-align: right;
 }
 
+.mini-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0 0.5rem 0;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  background: none;
+}
+
+.mini-footer-link {
+  color: #666;
+  text-decoration: none;
+  padding: 0.3em 0.8em;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mini-footer-link:hover, .mini-footer-link:focus {
+  background: #f2f2f2;
+  color: #FF4400;
+  text-decoration: underline;
+}
+
 @media (max-width: 1000px) {
   .footer-row:nth-child(1) {
     flex-direction: column;

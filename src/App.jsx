@@ -25,6 +25,7 @@ import LegalAdvice from './pages/About/LegalAdvice';
 import Privacy from './pages/About/Privacy';
 import { HelmetProvider } from 'react-helmet-async';
 import NotFound from './pages/NotFound';
+import { trail } from './utils/trail';
 
 // Map of project components
 const PROJECT_COMPONENTS = {
@@ -42,7 +43,11 @@ const Preloader = ({ onLoaded }) => {
 
   useEffect(() => {
     // Get the work images to preload
-    const imagesToLoad = [...workListEN, ...workListES].map(item => item.image);
+    const workImages = [...workListEN, ...workListES].map(item => item.image);
+    // Get the trail images to preload
+    const trailImages = trail.map(item => item.src);
+    // Combine all images to preload
+    const imagesToLoad = [...workImages, ...trailImages];
     const totalImages = imagesToLoad.length;
     let loadedImages = 0;
 

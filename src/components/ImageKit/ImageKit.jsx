@@ -20,7 +20,7 @@ const ImageKit = ({
   urlEndpoint,
   transformationPosition = 'path',
   transformation = {},
-  alt = '',
+  alt = 'Imagen optimizada',
   lqip = { active: false, quality: 20, blur: 6 },
   width,
   height,

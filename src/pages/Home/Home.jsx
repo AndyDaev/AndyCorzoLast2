@@ -15,6 +15,7 @@ import { useLenis } from "lenis/react";
 import Transition from "../../components/Transition/Transition";
 import Trail from "../../components/Trail/Trail";
 import { LanguageContext } from "../../context/LanguageContext";
+import { Helmet } from 'react-helmet-async';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -184,6 +185,16 @@ const Home = () => {
       urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}
       transformationPosition="path"
     >
+      <Helmet>
+        <title>{language === 'EN' ? 'Andy Corzo – Creative Portfolio' : 'Andy Corzo – Portafolio Creativo'}</title>
+        <meta name="description" content={language === 'EN' ? 'Portfolio of Andy Corzo, creative designer. Branding, UI/UX, motion graphics, and more.' : 'Portafolio de Andy Corzo, diseñador creativo. Branding, UI/UX, motion graphics y más.'} />
+        <meta property="og:title" content={language === 'EN' ? 'Andy Corzo – Creative Portfolio' : 'Andy Corzo – Portafolio Creativo'} />
+        <meta property="og:description" content={language === 'EN' ? 'Portfolio of Andy Corzo, creative designer.' : 'Portafolio de Andy Corzo, diseñador creativo.'} />
+        <meta property="og:image" content="/public/site-icon.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://andycorzo.com/" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <ReactLenis root>
         <div className="page home bg-white">
           <section className="hero bg-[#121212]">

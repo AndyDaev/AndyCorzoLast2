@@ -1,0 +1,89 @@
+/* Cookies.css - Styling for the Cookies Policy page */
+
+.cookies-policy-container {
+  max-width: 1900px;
+  margin: 2em auto;
+  padding: 2em 1.5em;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.cookies-policy-container h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5em;
+  color: #FF4400;
+  font-weight: 900;
+  letter-spacing: -1px;
+  border-bottom: 3px solid #FF4400;
+  padding-bottom: 0.5em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #fff 60%, #ffe5d0 100%);
+  border-radius: 8px 8px 0 0;
+}
+
+.cookies-policy-container h3 {
+  font-size: 1.1rem;
+  margin: 1.2em 0 0.7em 0;
+  color: #222;
+  font-weight: 600;
+}
+
+.cookies-policy-container p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #222;
+  margin-bottom: 1em;
+}
+
+.cookies-policy-container ul, .cookies-policy-container ol {
+  margin: 1em 0 1em 2em;
+  padding-left: 1.5em;
+}
+
+.cookies-policy-container li {
+  margin-bottom: 0.5em;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cookies-policy-content a {
+  color: #0070f3;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  transition: color 0.2s;
+}
+.cookies-policy-content a:hover, .cookies-policy-content a:focus {
+  color: #0051a3;
+  text-decoration: underline;
+}
+
+.cookies-policy-content,
+.cookies-policy-content ul,
+.cookies-policy-content li,
+.cookies-policy-content a {
+  text-transform: none !important;
+}
+
+.about-title {
+  margin-top: 4rem;
+}
+
+@media (max-width: 600px) {
+  .cookies-policy-container {
+    padding: 1em 0.5em;
+    max-width: 98vw;
+  }
+  .cookies-policy-container h1 {
+    font-size: 1.4rem;
+  }
+  .cookies-policy-container h3 {
+    font-size: 1rem;
+  }
+  .about-title {
+    margin-top: 7rem;
+  }
+} 

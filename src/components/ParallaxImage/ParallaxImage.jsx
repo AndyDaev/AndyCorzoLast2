@@ -5,7 +5,7 @@ import { useLenis } from "lenis/react";
 
 const lerp = (start, end, factor) => start + (end - start) * factor;
 
-const ParallaxImage = ({ src, alt, speed = 0.2 }) => {
+const ParallaxImage = ({ src, alt = "Imagen con efecto parallax", speed = 0.2 }) => {
   const imageRef = useRef(null);
   const bounds = useRef(null);
   const currentTranslateY = useRef(0);

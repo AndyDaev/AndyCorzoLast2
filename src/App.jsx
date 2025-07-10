@@ -9,7 +9,7 @@ import Project0_Altavoz from './pages/Projects/Project0_Altavoz';
 import Project1_VisionFest from './pages/Projects/Project1_VisionFest';
 import Project2_OkamiEsports from './pages/Projects/Project2_OkamiEsports';
 import Project3_Tonkati from './pages/Projects/Project3_Tonkati';
-import Project4_RoyalCanin from './pages/Projects/Project4_RoyalCanin';
+import Project4_GijonThrowdown from './pages/Projects/Project4_GijonThrowdown';
 import SampleProject from "./pages/Projects/SampleProject";
 import Archive2 from './pages/archive2/Archive';
 import Contact from './pages/Contact/Contact';
@@ -20,6 +20,11 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import { AnimatePresence } from "framer-motion";
 import { workListEN, workListES } from "./data/workList";
 import { LanguageProvider, LanguageContext } from './context/LanguageContext';
+import Cookies from './pages/About/Cookies';
+import LegalAdvice from './pages/About/LegalAdvice';
+import Privacy from './pages/About/Privacy';
+import { HelmetProvider } from 'react-helmet-async';
+import NotFound from './pages/NotFound';
 
 // Map of project components
 const PROJECT_COMPONENTS = {
@@ -27,7 +32,7 @@ const PROJECT_COMPONENTS = {
   "Project1_VisionFest": Project1_VisionFest,
   "Project2_OkamiEsports": Project2_OkamiEsports,
   "Project3_Tonkati": Project3_Tonkati,
-  "Project4_RoyalCanin": Project4_RoyalCanin
+  "Project4_GijonThrowdown": Project4_GijonThrowdown,
 };
 
 // Preloader component
@@ -109,36 +114,51 @@ const Preloader = ({ onLoaded }) => {
 const App = () => {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleLoaded = () => {
     setIsLoading(false);
   };
 
   return (
-    <LanguageProvider>
-      {isLoading ? (
-        <Preloader onLoaded={handleLoaded} />
-      ) : (
-        <>
-          <CustomCursor />
-          <ScrollToTop />
-          <Navbar />
-          <AnimatePresence mode="wait" initial={false}>
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/work" element={<Projects />} />
-              <Route path="/archive" element={<Archive2 />} />
-              <Route path="/project/:id" element={<ProjectRouter />} />
-              <Route path="*" element={<Navigate to="/project/0" replace />} />
-              <Route path="/project/sample" element={<SampleProject />} />
-            </Routes>
-          </AnimatePresence>
-        </>
-      )}
-    </LanguageProvider>
+    <HelmetProvider>
+      <LanguageProvider>
+        {isLoading ? (
+          <Preloader onLoaded={handleLoaded} />
+        ) : (
+          <>
+            {!isMobile && <CustomCursor />}
+            <ScrollToTop />
+            <Navbar />
+            <AnimatePresence mode="wait" initial={false}>
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/work" element={<Projects />} />
+               {/*  <Route path="/archive" element={<Archive2 />} /> */}
+                <Route path="/project/:id" element={<ProjectRouter />} />
+                <Route path="/project/sample" element={<SampleProject />} />
+                <Route path="/cookies" element={<Cookies />} />
+                <Route path="/legal" element={<LegalAdvice />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </AnimatePresence>
+          </>
+        )}
+      </LanguageProvider>
+    </HelmetProvider>
   );
 };
 
@@ -150,7 +170,7 @@ const ProjectRouter = () => {
 
   // Convert id to number and handle out-of-bounds IDs
   const currentId = parseInt(id);
-  const maxId = workList.length - 1; // Since we start from 0
+  const maxId = workList.length; // Since we start from 0
 
   // If id is out of bounds, redirect to project 0
   if (isNaN(currentId) || currentId < 0 || currentId > maxId) {

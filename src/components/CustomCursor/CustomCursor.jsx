@@ -36,12 +36,17 @@ const CustomCursor = () => {
       setIsActive(false);
     };
 
+    const handleMouseDown = () => {
+      setIsActive(false);
+    };
+
     const setupInteractiveElements = () => {
       const interactiveElements = document.querySelectorAll('a, button, .nav-link, .home-work-item, [role="button"], .project-item, .work-item');
       
       interactiveElements.forEach(element => {
         element.addEventListener('mouseenter', handleMouseEnter);
         element.addEventListener('mouseleave', handleMouseLeave);
+        element.addEventListener('mousedown', handleMouseDown);
         element.style.cursor = 'none';
       });
     };
@@ -96,6 +101,7 @@ const CustomCursor = () => {
       interactiveElements.forEach(element => {
         element.removeEventListener('mouseenter', handleMouseEnter);
         element.removeEventListener('mouseleave', handleMouseLeave);
+        element.removeEventListener('mousedown', handleMouseDown);
       });
 
       document.removeEventListener('mouseenter', () => {

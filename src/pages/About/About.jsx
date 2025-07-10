@@ -7,13 +7,14 @@ import ReactLenis from "lenis/react";
 import Transition from "../../components/Transition/Transition";
 import { IKImage, IKContext } from 'imagekitio-react';
 import { LanguageContext } from "../../context/LanguageContext";
+import { Helmet } from 'react-helmet-async';
 
 const ES = {
   animatedCopy: "Holaa!!",
   title: "Sobre mí",
-  description: "Soy Andy Corzo, un diseñador gráfico apasionado por la cultura queer y el mundo dinámico de las redes sociales. Soy dedicado a crear diseños que son tanto hermosos como funcionales, mientras crea experiencias interactivas y engajadas que resonan profundamente con las personas.",
-  description2: "Para mí, el diseño gráfico es más que crear visores — es sobre cómo esos visores nos hacen sentir. Creo en la sutileza, las texturas y la honestidad en el diseño para contar historias significativas.",
-  description3: "Cada proyecto es una nueva colaboración, un nuevo desafío y una nueva oportunidad para crear algo significativo. Si mueve a alguien, incluso por un segundo — ¡ha cumplido su trabajo.",
+  description: "Soy Andy Corzo, un diseñador gráfico apasionado por la ciencia ficción y la cultura queer. Me apasiona crear diseños tanto funcionales como estéticos, mi parte favorita de diseñar es cuando al cliente o al público les comueve y se sienten identificados con mi creación.",
+  description2: "Para mí, el diseño gráfico es más que crear algo bonito — es sobre cómo el diseño nos hace sentir. Me encantan los colores potentes, las texturas y los efectos especiales.",
+  description3: "Cada proyecto es un nuevo desafío y una nueva oportunidad para crear algo significativo. Si conmueve a alguien, incluso por un segundo ha cumplido su trabajo.",
 };
 
 const EN = {
@@ -30,25 +31,20 @@ const About = () => {
 
   const socialLinks = [
     {
+      name: "X (Twitter)",
+      url: "https://x.com/AndyCorz",
+      icon: "𝕏"
+    },
+    {
       name: "Instagram",
-      url: "https://instagram.com/yourusername",
+      url: "https://www.instagram.com/andylxpez/",
       icon: "📸"
     },
     {
-      name: "Twitter",
-      url: "https://twitter.com/yourusername",
-      icon: "🐦"
-    },
-    {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://www.linkedin.com/in/andreslopezcorzo/",
       icon: "💼"
     },
-    {
-      name: "Vimeo",
-      url: "https://vimeo.com/yourusername",
-      icon: "🎬"
-    }
   ];
 
   return (
@@ -57,6 +53,16 @@ const About = () => {
       urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}
       transformationPosition="path"
     >
+      <Helmet>
+        <title>{language === 'EN' ? 'About – Andy Corzo' : 'Sobre mí – Andy Corzo'}</title>
+        <meta name="description" content={language === 'EN' ? 'Learn more about Andy Corzo, creative designer and his professional background.' : 'Conoce más sobre Andy Corzo, diseñador creativo y su trayectoria profesional.'} />
+        <meta property="og:title" content={language === 'EN' ? 'About – Andy Corzo' : 'Sobre mí – Andy Corzo'} />
+        <meta property="og:description" content={language === 'EN' ? 'Learn more about Andy Corzo, creative designer.' : 'Conoce más sobre Andy Corzo, diseñador creativo.'} />
+        <meta property="og:image" content="/public/site-icon.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://andycorzo.com/about" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <ReactLenis root className="bg-white">
         <div className="page about mt-4">
           <section className="about-single">

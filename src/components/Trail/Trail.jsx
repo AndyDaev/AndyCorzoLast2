@@ -34,7 +34,7 @@ const Trail = () => {
   useEffect(() => {
     // Check if the device is mobile/tablet (has touch events)
     const checkMobile = () => {
-      setIsMobile('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      setIsMobile('ontouchstart' in window || navigator.maxTouchPoints > 3);
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -79,10 +79,18 @@ const Trail = () => {
     let isMoving = false,
       isCursorInContainer = false;
     let lastRemovalTime = 0,
-      lastSteadyImageTime = 0,
       lastScrollTime = 0;
     let isScrolling = false,
       scrollTicking = false;
+
+    // Add idle image spawning
+    let idleInterval = null;
+    const idleSpawn = () => {
+      if (isCursorInContainer && !isMoving) {
+        createImage(true); // pass true for idle
+      }
+    };
+    idleInterval = setInterval(idleSpawn, config.idleCursorInterval * 2); // slower for softer effect
 
     const isInContainer = (x, y) => {
       const heroRect = container.closest('.hero').getBoundingClientRect();
@@ -122,22 +130,15 @@ const Trail = () => {
     const createTrailImage = () => {
       if (!isCursorInContainer) return;
 
-      const now = Date.now();
-
       if (isMoving && hasMovedEnough()) {
         lastMouseX = mouseX;
         lastMouseY = mouseY;
         createImage();
         return;
       }
-
-      if (!isMoving && now - lastSteadyImageTime >= config.idleCursorInterval) {
-        lastSteadyImageTime = now;
-        createImage();
-      }
     };
 
-    const createImage = () => {
+    const createImage = (isIdle = false) => {
       const img = document.createElement("img");
       img.classList.add("trail-img");
 
@@ -153,12 +154,18 @@ const Trail = () => {
       img.style.left = `${relativeX}px`;
       img.style.top = `${relativeY}px`;
       img.style.transform = `translate(-50%, -50%) rotate(${rotation}deg) scale(0)`;
-      img.style.transition = `transform ${config.inDuration}ms ${config.inEasing}`;
+      if (isIdle) {
+        img.style.transition = `transform 1.5s cubic-bezier(.22,1,.36,1), opacity 1.5s cubic-bezier(.22,1,.36,1)`;
+        img.style.opacity = '0.7';
+      } else {
+        img.style.transition = `transform ${config.inDuration}ms ${config.inEasing}`;
+      }
 
       container.appendChild(img);
 
       requestAnimationFrame(() => {
         img.style.transform = `translate(-50%, -50%) rotate(${rotation}deg) scale(1)`;
+        if (isIdle) img.style.opacity = '1';
       });
 
       trailElements.push({
@@ -267,6 +274,7 @@ const Trail = () => {
       document.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scroll", handleScrollTrail);
+      if (idleInterval) clearInterval(idleInterval);
     };
   }, []);
 

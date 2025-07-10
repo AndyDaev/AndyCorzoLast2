@@ -26,6 +26,7 @@ import Privacy from './pages/About/Privacy';
 import { HelmetProvider } from 'react-helmet-async';
 import NotFound from './pages/NotFound';
 import { trail } from './utils/trail';
+import { projectHeroImages } from './utils/projectHeroImages';
 
 // Map of project components
 const PROJECT_COMPONENTS = {
@@ -46,8 +47,11 @@ const Preloader = ({ onLoaded }) => {
     const workImages = [...workListEN, ...workListES].map(item => item.image);
     // Get the trail images to preload
     const trailImages = trail.map(item => item.src);
+    // Get the project hero images to preload
+    const heroImages = projectHeroImages;
+    
     // Combine all images to preload
-    const imagesToLoad = [...workImages, ...trailImages];
+    const imagesToLoad = [...workImages, ...trailImages, ...heroImages];
     const totalImages = imagesToLoad.length;
     let loadedImages = 0;
 

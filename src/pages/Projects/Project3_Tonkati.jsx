@@ -4,6 +4,7 @@ import { IKImage, IKContext } from 'imagekitio-react';
 import { useContext } from 'react';
 import { LanguageContext } from "../../context/LanguageContext";
 import "./ProjectAltavoz.css";
+import VideoPlaceholder from "../../components/VideoPlaceholder/VideoPlaceholder";
 
 import Transition from "../../components/Transition/Transition";
 
@@ -81,7 +82,7 @@ const Project3_Tonkati = () => {
         <div className="project">
           <div className="conainer">
             <div className="project-hero-img img2" style={{ width: '100vw', maxWidth: '100vw', minHeight: '40vh', height: '50vh', overflow: 'hidden', position: 'relative' }}>
-              <video
+              <VideoPlaceholder
                 src="/assets/Tonkati/Comp 1.mp4"
                 className="w-full h-full object-cover"
                 autoPlay

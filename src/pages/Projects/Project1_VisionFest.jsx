@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { LanguageContext } from "../../context/LanguageContext";
 import "./ProjectAltavoz.css";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
+import VideoPlaceholder from "../../components/VideoPlaceholder/VideoPlaceholder";
 
 import Transition from "../../components/Transition/Transition";
 
@@ -149,7 +150,7 @@ const Project1_VisionFest = () => {
 
             <div className="project-video">
               <div className="img full-height-video-container">
-                <video
+                <VideoPlaceholder
                   src={ProjectImg2}
                   className="w-full h-full object-cover"
                   autoPlay

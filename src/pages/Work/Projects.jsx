@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Transition from "../../components/Transition/Transition";
 import { LanguageContext } from "../../context/LanguageContext";
+import VideoPlaceholder from "../../components/VideoPlaceholder/VideoPlaceholder";
 import "./Projects.css";
 
 // Separate static and animated versions of images/videos
@@ -260,7 +261,7 @@ const Projects = () => {
                       />
                       {/* GIF image */}
                       {project.img.video && (
-                        <video
+                        <VideoPlaceholder
                           src={project.img.video}
                           className="video-preview gif-img w-full h-full object-cover absolute top-0 left-0 opacity-0"
                           muted

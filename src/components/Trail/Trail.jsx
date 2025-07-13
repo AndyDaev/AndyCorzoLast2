@@ -29,6 +29,7 @@ const mobileEN = {
 const Trail = () => {
   const trailContainerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const { language } = useContext(LanguageContext);
 
   useEffect(() => {
@@ -148,8 +149,16 @@ const Trail = () => {
       img.alt = trail[imageIndex].alt;
 
       const heroRect = container.closest('.hero').getBoundingClientRect();
-      const relativeX = mouseX - heroRect.left;
-      const relativeY = mouseY - heroRect.top;
+      
+      // For mobile, position images in the center initially, then at touch position after interaction
+      let relativeX, relativeY;
+      if (isMobile && !hasInteracted) {
+        relativeX = heroRect.width / 2;
+        relativeY = heroRect.height / 2;
+      } else {
+        relativeX = mouseX - heroRect.left;
+        relativeY = mouseY - heroRect.top;
+      }
 
       img.style.left = `${relativeX}px`;
       img.style.top = `${relativeY}px`;
@@ -178,13 +187,18 @@ const Trail = () => {
     const createScrollTrailImage = () => {
       if (!isCursorInContainer) return;
 
-      lastMouseX += (config.mouseThreshold + 10) * (Math.random() > 0.5 ? 1 : -1);
-      lastMouseY += (config.mouseThreshold + 10) * (Math.random() > 0.5 ? 1 : -1);
+      if (isMobile && !hasInteracted) {
+        // For mobile before interaction, just create images in center
+        createImage();
+      } else {
+        lastMouseX += (config.mouseThreshold + 10) * (Math.random() > 0.5 ? 1 : -1);
+        lastMouseY += (config.mouseThreshold + 10) * (Math.random() > 0.5 ? 1 : -1);
 
-      createImage();
+        createImage();
 
-      lastMouseX = mouseX;
-      lastMouseY = mouseY;
+        lastMouseX = mouseX;
+        lastMouseY = mouseY;
+      }
     };
 
     const removeOldImages = () => {
@@ -224,12 +238,45 @@ const Trail = () => {
       }
     };
 
+    const handleTouchStart = (e) => {
+      if (!isMobile) return;
+      
+      setHasInteracted(true);
+      const touch = e.touches[0];
+      mouseX = touch.clientX;
+      mouseY = touch.clientY;
+      isCursorInContainer = isInContainer(mouseX, mouseY);
+      
+      if (isCursorInContainer) {
+        createImage();
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isMobile || !hasInteracted) return;
+      
+      const touch = e.touches[0];
+      mouseX = touch.clientX;
+      mouseY = touch.clientY;
+      isCursorInContainer = isInContainer(mouseX, mouseY);
+      
+      if (isCursorInContainer) {
+        isMoving = true;
+        clearTimeout(window.moveTimeout);
+        window.moveTimeout = setTimeout(() => {
+          isMoving = false;
+        }, 100);
+      }
+    };
+
     const handleScroll = () => {
       isCursorInContainer = isInContainer(mouseX, mouseY);
 
       if (isCursorInContainer) {
         isMoving = true;
-        lastMouseX += (Math.random() - 0.5) * 10;
+        if (!isMobile) {
+          lastMouseX += (Math.random() - 0.5) * 10;
+        }
 
         clearTimeout(window.scrollTimeout);
         window.scrollTimeout = setTimeout(() => {
@@ -258,12 +305,28 @@ const Trail = () => {
       }
     };
 
+    // For mobile, create a continuous stream of images in the center initially
+    let mobileInterval = null;
+    if (isMobile && !hasInteracted) {
+      mobileInterval = setInterval(() => {
+        const heroRect = container.closest('.hero').getBoundingClientRect();
+        if (heroRect.top < window.innerHeight && heroRect.bottom > 0) {
+          isCursorInContainer = true;
+          createImage(true);
+        }
+      }, 800); // Create images every 800ms on mobile
+    }
+
     document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("touchstart", handleTouchStart, { passive: true });
+    document.addEventListener("touchmove", handleTouchMove, { passive: true });
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("scroll", handleScrollTrail, { passive: true });
 
     const animate = () => {
-      createTrailImage();
+      if (!isMobile) {
+        createTrailImage();
+      }
       removeOldImages();
       requestAnimationFrame(animate);
     };
@@ -272,11 +335,14 @@ const Trail = () => {
     return () => {
       document.removeEventListener("mouseover", setInitialMousePos, false);
       document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scroll", handleScrollTrail);
       if (idleInterval) clearInterval(idleInterval);
+      if (mobileInterval) clearInterval(mobileInterval);
     };
-  }, []);
+  }, [isMobile, hasInteracted]);
 
   return (
     <section ref={trailContainerRef} className="trail-container">

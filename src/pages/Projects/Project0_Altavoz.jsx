@@ -5,6 +5,7 @@ import { IKImage, IKContext } from 'imagekitio-react';
 import { useContext } from 'react';
 import { LanguageContext } from "../../context/LanguageContext";
 import "./ProjectAltavoz.css";
+import VideoPlaceholder from "../../components/VideoPlaceholder/VideoPlaceholder";
 
 import Transition from "../../components/Transition/Transition";
 
@@ -149,7 +150,7 @@ const Project0_Altavoz = () => {
             </div>
 
             <div className="">
-              <video
+              <VideoPlaceholder
                 src={ProjectHeroVideo}
                 className="w-full h-full object-cover"
                 autoPlay

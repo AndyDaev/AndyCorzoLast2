@@ -140,33 +140,33 @@ const App = () => {
 
   return (
     <HelmetProvider>
-      <LanguageProvider>
-        {isLoading ? (
-          <Preloader onLoaded={handleLoaded} />
-        ) : (
-          <>
-            {!isMobile && <CustomCursor />}
-            <ScrollToTop />
-            <Navbar />
-            <AnimatePresence mode="wait" initial={false}>
-              <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/faq" element={<FAQ />} />
-                <Route path="/work" element={<Projects />} />
-               {/*  <Route path="/archive" element={<Archive2 />} /> */}
-                <Route path="/project/:id" element={<ProjectRouter />} />
-                <Route path="/project/sample" element={<SampleProject />} />
+    <LanguageProvider>
+      {isLoading ? (
+        <Preloader onLoaded={handleLoaded} />
+      ) : (
+        <>
+          {!isMobile && <CustomCursor />}
+          <ScrollToTop />
+          <Navbar />
+          <AnimatePresence mode="wait" initial={false}>
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/work" element={<Projects />} />
+             {/*  <Route path="/archive" element={<Archive2 />} /> */}
+              <Route path="/project/:id" element={<ProjectRouter />} />
+              <Route path="/project/sample" element={<SampleProject />} />
                 <Route path="/cookies" element={<Cookies />} />
                 <Route path="/legal" element={<LegalAdvice />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="*" element={<NotFound />} />
-              </Routes>
-            </AnimatePresence>
-          </>
-        )}
-      </LanguageProvider>
+            </Routes>
+          </AnimatePresence>
+        </>
+      )}
+    </LanguageProvider>
     </HelmetProvider>
   );
 };

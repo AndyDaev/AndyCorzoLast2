@@ -264,72 +264,72 @@ const Project2_OkamiEsports = () => {
             </div>
 
             <div className="project-imgs">
-              <div className="img3">
-                <IKImage
-                  src={ProjectHeroImg3}
-                  transformation={[
-                    {
-                      load: 'fast',
-                      quality: 100,
-                      format: "auto"
-                    }
-                  ]}
-                  lqip={{ active: true, quality: 100 }}
-                  alt="Project Hero Img 3"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  srcSet={[
-                    { width: 480 },
-                    { width: 768 },
-                    { width: 1200 }
-                  ]}
-                  sizes="(max-width: 600px) 480px, (max-width: 900px) 768px, 1200px"
-                />
-              </div>
+            <div className="img3">
+              <IKImage
+                src={ProjectHeroImg3}
+                transformation={[
+                  {
+                    load: 'fast',
+                    quality: 100,
+                    format: "auto"
+                  }
+                ]}
+                lqip={{ active: true, quality: 100 }}
+                alt="Project Hero Img 3"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                srcSet={[
+                  { width: 480 },
+                  { width: 768 },
+                  { width: 1200 }
+                ]}
+                sizes="(max-width: 600px) 480px, (max-width: 900px) 768px, 1200px"
+              />
+            </div>
 
-              <div className="img2 ">
-                <IKImage
-                  src={ProjectImg6}
-                  transformation={[
-                    {
-                      load: 'fast',
-                      quality: 100,
-                      format: "auto"
-                    }
-                  ]}
-                  lqip={{ active: true, quality: 100 }}
-                  alt="Project Hero Img 3"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  srcSet={[
-                    { width: 480 },
-                    { width: 768 },
-                    { width: 1200 }
-                  ]}
-                  sizes="(max-width: 600px) 480px, (max-width: 900px) 768px, 1200px"
-                />
-              </div>
+            <div className="img2 ">
+              <IKImage
+                src={ProjectImg6}
+                transformation={[
+                  {
+                    load: 'fast',
+                    quality: 100,
+                    format: "auto"
+                  }
+                ]}
+                lqip={{ active: true, quality: 100 }}
+                alt="Project Hero Img 3"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                srcSet={[
+                  { width: 480 },
+                  { width: 768 },
+                  { width: 1200 }
+                ]}
+                sizes="(max-width: 600px) 480px, (max-width: 900px) 768px, 1200px"
+              />
+            </div>
 
-              <div className="img2 ">
-                <IKImage
-                  src={ProjectImg8}
-                  transformation={[
-                    {
-                      load: 'fast',
-                      quality: 100,
-                      format: "auto"
-                    }
-                  ]}
-                  lqip={{ active: true, quality: 100 }}
-                  alt="Project Hero Img 3"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  srcSet={[
-                    { width: 480 },
-                    { width: 768 },
-                    { width: 1200 }
-                  ]}
-                  sizes="(max-width: 600px) 480px, (max-width: 900px) 768px, 1200px"
+            <div className="img2 ">
+              <IKImage
+                src={ProjectImg8}
+                transformation={[
+                  {
+                    load: 'fast',
+                    quality: 100,
+                    format: "auto"
+                  }
+                ]}
+                lqip={{ active: true, quality: 100 }}
+                alt="Project Hero Img 3"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                srcSet={[
+                  { width: 480 },
+                  { width: 768 },
+                  { width: 1200 }
+                ]}
+                sizes="(max-width: 600px) 480px, (max-width: 900px) 768px, 1200px"
                 />
               </div>
             </div>

@@ -268,7 +268,7 @@ const Projects = () => {
                           loop
                           playsInline
                           preload="auto"
-                          style={{ display: 'none' }}
+                        style={{ display: 'none' }}
                         />
                       )}
                     </div>

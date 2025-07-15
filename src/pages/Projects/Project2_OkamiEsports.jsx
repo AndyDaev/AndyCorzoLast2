@@ -36,7 +36,8 @@ const ES = {
   projectCategory: "Branding",
   projectSubCategory: "Diseño",
   projectSubCategory2: "Animación",
-  streamingAssets:"Animaciones para directos en Twitch"
+  streamingAssets:"Animaciones para directos en Twitch",
+  projectLiveDemo: "Demo en Vivo"
 };
 
 const EN = {

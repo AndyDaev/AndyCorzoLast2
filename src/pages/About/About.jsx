@@ -12,14 +12,16 @@ import { Helmet } from 'react-helmet-async';
 const ES = {
   animatedCopy: "Holaa!!",
   title: "Sobre mí",
-  description: "Soy Andy Corzo, diseñador gráfico apasionado por la tecnología, el arte y la música. Actualmente soy Vicepresidente y responsable de Imagen Corporativa en la Asociación Cultural Altavoz de Gijón, Asturias. Desde allí impulsamos proyectos artísticos como obras teatrales, talleres de pintura y actividades de juegos de mesa, promoviendo la creatividad y la participación cultural. Lo que más disfruto de mi profesión es ver cómo una idea visual puede emocionar, conectar y hacer que el público o el cliente se sientan reflejados en ella. Diseñar para el mundo del arte es mi forma de contar historias que inspiran y dejan huella.",
+  description: "Soy Andy Corzo, diseñador gráfico apasionado por la tecnología, el arte y la música. Actualmente soy Vicepresidente y responsable de Imagen Corporativa en la Asociación Cultural Altavoz de Gijón, Asturias. Desde allí impulsamos proyectos artísticos como obras teatrales, talleres de pintura y actividades de juegos de mesa, promoviendo la creatividad y la participación cultural.",
+  description2: "Lo que más disfruto de mi profesión es ver cómo una idea visual puede emocionar, conectar y hacer que el público o el cliente se sientan reflejados en ella. Diseñar para el mundo del arte es mi forma de contar historias que inspiran y dejan huella.",
   description3: "Cada proyecto es un nuevo desafío y una nueva oportunidad para crear algo significativo. Si conmueve a alguien, incluso por un segundo ha cumplido su trabajo.",
 };
 
 const EN = {
   animatedCopy: "Hii!",
   title: "About me",
-  description: "I’m Andy Corzo, a graphic designer passionate about technology, art, and music. I currently serve as Vice President and Head of Corporate Image at Asociación Cultural Altavoz in Gijón, Asturias. There, we promote artistic projects such as theater productions, painting workshops, and board game activities, fostering creativity and cultural engagement. What I love most about my profession is seeing how a visual idea can move people, connect with them, and make them feel represented. Designing for the world of art is my way of telling stories that inspire and leave a lasting impression.",
+  description: "I’m Andy Corzo, a graphic designer passionate about technology, art, and music. I currently serve as Vice President and Head of Corporate Image at Asociación Cultural Altavoz in Gijón, Asturias. There, we promote artistic projects such as theater productions, painting workshops, and board game activities, fostering creativity and cultural engagement.",
+  description2: "What I love most about my profession is seeing how a visual idea can move people, connect with them, and make them feel represented. Designing for the world of art is my way of telling stories that inspire and leave a lasting impression.",
   description3: "Each project is a new collaboration, a new challenge, and a new chance to create something meaningful. If it moves someone, even for a second — it's done its job.",
 };
 

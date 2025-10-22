@@ -81,7 +81,7 @@ const About = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="about-single-text">
+              <div className="about-single-text text-transform: none">
                 <AnimatedCopy animateOnScroll={true} tag="h1" className="about-title mt-4">
                   {langObj.animatedCopy}
                 </AnimatedCopy>

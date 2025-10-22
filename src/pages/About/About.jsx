@@ -12,16 +12,14 @@ import { Helmet } from 'react-helmet-async';
 const ES = {
   animatedCopy: "Holaa!!",
   title: "Sobre mí",
-  description: "Soy Andy Corzo, un diseñador gráfico apasionado por la ciencia ficción y la cultura queer. Me apasiona crear diseños tanto funcionales como estéticos, mi parte favorita de diseñar es cuando al cliente o al público les comueve y se sienten identificados con mi creación.",
-  description2: "Para mí, el diseño gráfico es más que crear algo bonito — es sobre cómo el diseño nos hace sentir. Me encantan los colores potentes, las texturas y los efectos especiales.",
+  description: "Soy Andy Corzo, diseñador gráfico apasionado por la tecnología, el arte y la música. Actualmente soy Vicepresidente y responsable de Imagen Corporativa en la Asociación Cultural Altavoz de Gijón, Asturias. Desde allí impulsamos proyectos artísticos como obras teatrales, talleres de pintura y actividades de juegos de mesa, promoviendo la creatividad y la participación cultural. Lo que más disfruto de mi profesión es ver cómo una idea visual puede emocionar, conectar y hacer que el público o el cliente se sientan reflejados en ella. Diseñar para el mundo del arte es mi forma de contar historias que inspiran y dejan huella.",
   description3: "Cada proyecto es un nuevo desafío y una nueva oportunidad para crear algo significativo. Si conmueve a alguien, incluso por un segundo ha cumplido su trabajo.",
 };
 
 const EN = {
   animatedCopy: "Hii!",
   title: "About me",
-  description: "I'm Andy Corzo, a passionate Graphic Designer and Creative inspired by queer culture and the dynamic world of social media. I'm dedicated to crafting designs that are both beautiful and functional, while creating interactive and engaging experiences that resonate deeply with people.",
-  description2: "For me, graphic design is more than just creating visuals — it's about how those visuals make us feel. I believe in subtlety, texture, and honesty in design to tell meaningful stories.",
+  description: "I’m Andy Corzo, a graphic designer passionate about technology, art, and music. I currently serve as Vice President and Head of Corporate Image at Asociación Cultural Altavoz in Gijón, Asturias. There, we promote artistic projects such as theater productions, painting workshops, and board game activities, fostering creativity and cultural engagement. What I love most about my profession is seeing how a visual idea can move people, connect with them, and make them feel represented. Designing for the world of art is my way of telling stories that inspire and leave a lasting impression.",
   description3: "Each project is a new collaboration, a new challenge, and a new chance to create something meaningful. If it moves someone, even for a second — it's done its job.",
 };
 

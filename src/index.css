@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: "Messina Sans";
+  font-family: "  Sans";
   background-color: var(--bg);
   color: var(--fg);
 }
@@ -70,7 +70,7 @@ h5 {
 }
 
 p {
-  font-family: "Messina Sans";
+  font-family: "  Sans";
   font-size: 1rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -78,7 +78,7 @@ p {
 
 p.primary {
   text-transform: uppercase;
-  font-family: "Messina Sans Mono";
+  font-family: "  Sans Mono";
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -86,7 +86,7 @@ p.primary {
 }
 
 p.secondary {
-  font-family: "Messina Sans";
+  font-family: "  Sans";
   font-size: 1rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -94,7 +94,7 @@ p.secondary {
 
 p.primary.sm {
   text-transform: uppercase;
-  font-family: "Messina Sans Mono";
+  font-family: "  Sans Mono";
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -102,7 +102,7 @@ p.primary.sm {
 }
 
 p.secondary.sm {
-  font-family: "Messina Sans";
+  font-family: "  Sans";
   font-size: 0.8rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -113,7 +113,7 @@ a {
   text-decoration: none;
   text-transform: uppercase;
   color: var(--fg);
-  font-family: "Messina Sans Mono";
+  font-family: "  Sans Mono";
   font-size: 0.8rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -134,7 +134,7 @@ textarea:focus {
   outline: none;
   width: 100%;
   padding: 1em;
-  font-family: "Messina Sans";
+  font-family: "  Sans";
   font-size: 1rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -143,7 +143,7 @@ textarea:focus {
 
 input::placeholder,
 textarea::placeholder {
-  font-family: "Messina Sans";
+  font-family: "  Sans";
   font-size: 1rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -155,7 +155,7 @@ textarea::placeholder {
   display: block;
   width: max-content;
   padding: 1em 2em;
-  font-family: "Messina Sans Mono";
+  font-family: "  Sans Mono";
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;

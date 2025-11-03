@@ -113,123 +113,123 @@
   font-style: italic;
 }
 
-/* Messina Sans */
+/* changefont Sans */
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-Regular.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-RegularItalic.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-RegularItalic.woff2') format('woff2');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-Bold.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-Bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-BoldItalic.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-BoldItalic.woff2') format('woff2');
   font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-SemiBold.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-SemiBoldItalic.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-SemiBoldItalic.woff2') format('woff2');
   font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-Light.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-LightItalic.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-LightItalic.woff2') format('woff2');
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-Book.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-Book.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-BookItalic.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-BookItalic.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-Black.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-Black.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans";
-  src: url('/fonts/messina-sans/MessinaSans-BlackItalic.woff2') format('woff2');
+  font-family: "changefont Sans";
+  src: url('/fonts/changefont-sans/changefontSans-BlackItalic.woff2') format('woff2');
   font-weight: 900;
   font-style: italic;
   font-display: swap;
 }
 
-/* Messina Sans Mono */
+/* changefont Sans Mono */
 @font-face {
-  font-family: "Messina Sans Mono";
-  src: url('/fonts/messina-sans-mono/MessinaSansMono-Regular.otf') format('opentype');
+  font-family: "changefont Sans Mono";
+  src: url('/fonts/changefont-sans-mono/changefontSansMono-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans Mono";
-  src: url('/fonts/messina-sans-mono/MessinaSansMono-Bold.otf') format('opentype');
+  font-family: "changefont Sans Mono";
+  src: url('/fonts/changefont-sans-mono/changefontSansMono-Bold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Messina Sans Mono";
-  src: url('/fonts/messina-sans-mono/MessinaSansMono-SemiBold.otf') format('opentype');
+  font-family: "changefont Sans Mono";
+  src: url('/fonts/changefont-sans-mono/changefontSansMono-SemiBold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;

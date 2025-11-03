@@ -48,6 +48,10 @@ const Home = () => {
   const langObj = language === "EN" ? EN : ES;
   const workItems = language === "EN" ? workListEN : workListES;
 
+  // ImageKit configuration with fallbacks
+  const imageKitPublicKey = import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY || 'public_fWd6+RnXiyu4OLZt83KMQIfuBXs=';
+  const imageKitUrlEndpoint = (import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT || 'https://ik.imagekit.io/andycorzowork').replace(/\/$/, '');
+
   useEffect(() => {
     const handleResize = () => {
       ScrollTrigger.refresh();
@@ -181,8 +185,8 @@ const Home = () => {
 
   return (
     <IKContext
-      publicKey={import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY}
-      urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}
+      publicKey={imageKitPublicKey}
+      urlEndpoint={imageKitUrlEndpoint}
       transformationPosition="path"
     >
       <Helmet>
@@ -217,7 +221,8 @@ const Home = () => {
           </section>
 
           <section ref={homeWorkRef} className="home-work">
-            <div className="home-work-list">
+            {/* Projects Grid */}
+            <div className="home-work-grid">
               {workItems.map((work, index) => (
                 <Link
                   to={work.route}
@@ -228,7 +233,6 @@ const Home = () => {
                     2,
                     "0"
                   )} - ${String(workItems.length).padStart(2, "0")}`}</p>
-                  <h3>{work.title}</h3>
                   <div className="work-item-img">
                     <IKImage
                       src={work.image}
@@ -245,7 +249,12 @@ const Home = () => {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h4>{work.category}</h4>
+                  <div className="font-bold text-lg">{work.title}</div>
+                  <div className="projects-text">
+                    {Array.isArray(work.category) 
+                      ? work.category.join(" • ") 
+                      : work.category}
+                  </div>
                 </Link>
               ))}
             </div>

@@ -72,10 +72,14 @@ const Project3_Tonkati = () => {
   const currentId = parseInt(id);
   const nextId = currentId + 1 > 4 ? 0 : currentId + 1;
 
+  // ImageKit configuration with fallbacks
+  const imageKitPublicKey = import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY || 'public_fWd6+RnXiyu4OLZt83KMQIfuBXs=';
+  const imageKitUrlEndpoint = (import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT || 'https://ik.imagekit.io/andycorzowork').replace(/\/$/, '');
+
   return (
     <IKContext
-      publicKey={import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY}
-      urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}
+      publicKey={imageKitPublicKey}
+      urlEndpoint={imageKitUrlEndpoint}
       transformationPosition="path"
     >
       <ReactLenis root>

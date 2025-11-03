@@ -57,6 +57,10 @@ const SampleProject = () => {
   const { id } = useParams();
   const { language } = useContext(LanguageContext);
   const langObj = language === "EN" ? EN : ES;
+
+  // ImageKit configuration with fallbacks
+  const imageKitPublicKey = import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY || 'public_fWd6+RnXiyu4OLZt83KMQIfuBXs=';
+  const imageKitUrlEndpoint = (import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT || 'https://ik.imagekit.io/andycorzowork').replace(/\/$/, '');
   
   // Get the current project ID and calculate the next project ID
   const currentId = parseInt(id);
@@ -64,8 +68,8 @@ const SampleProject = () => {
 
   return (
     <IKContext
-      publicKey={import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY}
-      urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}
+      publicKey={imageKitPublicKey}
+      urlEndpoint={imageKitUrlEndpoint}
       transformationPosition="path"
     >
       <ReactLenis root>

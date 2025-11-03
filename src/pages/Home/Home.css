@@ -85,28 +85,34 @@
 
 .home-work {
   width: 100%;
-  padding: 8em 2em;
+  padding: 1em 0.5em;
   position: relative;
   z-index: 10; /* Ensure work items appear on top */
 }
 
-.home-work-list {
-  width: 40%;
+.home-work-grid {
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 8em;
-  position: relative; /* Added positioning context */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  position: relative;
 }
 
 .home-work-item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 2em;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.5em;
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.home-work-item:hover {
+  transform: translateY(-4px);
 }
 
 /* Add proper spacing for work item images */
@@ -186,12 +192,16 @@
   }
 
   .home-work {
-    padding: 1em 1.25em 4em 1.25em;
+    padding: 1em 0.5em;
   }
 
-  .home-work-list {
-    width: 100%;
-    gap: 4em; /* Reduced gap on mobile */
+  .home-work-grid {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+
+  .home-work-item {
+    gap: 0.5em;
   }
 
   .hobbies {
@@ -204,6 +214,9 @@
   }
 }
 
+.projects-text{
+  size: 0.2rem;
+}
 /* Base scrolling setup */
 html, body {
   margin: 0;

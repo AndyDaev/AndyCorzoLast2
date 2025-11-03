@@ -6,8 +6,16 @@ import { workListEN, workListES } from "../../data/workList";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 const Project3_WorkInProgress = () => {
+  // ImageKit configuration with fallbacks
+  const imageKitPublicKey = import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY || 'public_fWd6+RnXiyu4OLZt83KMQIfuBXs=';
+  const imageKitUrlEndpoint = (import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT || 'https://ik.imagekit.io/andycorzowork').replace(/\/$/, '');
+
   return (
-    <IKContext urlEndpoint="https://ik.imagekit.io/andresgarcia">
+    <IKContext
+      publicKey={imageKitPublicKey}
+      urlEndpoint={imageKitUrlEndpoint}
+      transformationPosition="path"
+    >
       <ReactLenis root>
         <ScrollToTop />
         {/* ... rest of the JSX ... */}

@@ -39,31 +39,31 @@ const projectsDataEN = [
   {
     id: 0,
     name: "Altavoz - Theater and Creative Association",
-    category: "BRAND DESIGN + MERCH",
+    category: ["BRAND DESIGN + MERCH"],
     img: ProjectImg1,
   },
   {
     id: 1,
     name: "Vision Fest - Hyperpop Festival!",
-    category: "BRAND DESIGN + MERCH",
+    category: ["BRAND DESIGN + MERCH"],
     img: ProjectImg2,
   },
   {
     id: 2,
     name: "Okami Esports - Esports Club",
-    category: "BRAND DESIGN + MERCH",
+    category: ["BRAND DESIGN + MERCH"],
     img: ProjectImg3,
   },
   {
     id: 3,
     name: "Tonkati - Exotic Food - Mexican Restaurant",
-    category: "BRAND DESIGN + MERCH",
+    category: ["BRAND DESIGN + MERCH"],
     img: ProjectImg4,
   },
   {
     id: 4,
     name: "Gijón Throwdown - Crossfit Competition",
-    category: "REBRANDING WORK",
+    category: ["REBRANDING WORK"],
     img: ProjectImg5,
   },
 ];
@@ -71,31 +71,31 @@ const projectsDataES = [
   {
     id: 0,
     name: "Altavoz - Teatro y Asociación Creativa",
-    category: "DISEÑO DE MARCA + MERCH",
+    category: ["DISEÑO DE MARCA + MERCH"],
     img: ProjectImg1,
   },
   {
     id: 1,
     name: "Vision Fest - Festival Hyperpop!",
-    category: "DISEÑO DE MARCA + MERCH",
+    category: ["DISEÑO DE MARCA + MERCH"],
     img: ProjectImg2,
   },
   {
     id: 2,
     name: "Okami Esports - Club de Esports",
-    category: "DISEÑO DE MARCA + MERCH",
+    category: ["DISEÑO DE MARCA + MERCH"],
     img: ProjectImg3,
   },
   {
     id: 3,
     name: "Tonkati - Comida Exótica - Restaurante Mexicano",
-    category: "DISEÑO DE MARCA + MERCH",
+    category: ["DISEÑO DE MARCA + MERCH"],
     img: ProjectImg4,
   },
   {
     id: 4,
     name: "Gijón Throwdown - Competición de Crossfit",
-    category: "REBRANDING WORK",
+    category: ["REBRANDING WORK", "EVENTO"],
     img: ProjectImg5,
   },
 ];
@@ -109,68 +109,54 @@ const EN = {
 };
 
 const Projects = () => {
-  const [projectList, setProjectList] = useState([]);
   const containerRef = useRef(null);
   const _lenis = useLenis(() => {});
-  const copyCounter = useRef(0);
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const { language } = useContext(LanguageContext);
   const projectsData = language === "EN" ? projectsDataEN : projectsDataES;
   const langObj = language === "EN" ? EN : ES;
 
-  useEffect(() => {
-    const numberOfCopies = 5;
-    const initialSet = Array(numberOfCopies)
-      .fill()
-      .flatMap((_, copyIndex) =>
-        projectsData.map((project) => ({
-          ...project,
-          uniqueId: `${copyIndex}-${project.id}-${Date.now()}`,
-        }))
-      );
-    setProjectList(initialSet);
-  }, [projectsData]);
+  // ImageKit configuration with fallbacks
+  const imageKitPublicKey = import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY || 'public_fWd6+RnXiyu4OLZt83KMQIfuBXs=';
+  const imageKitUrlEndpoint = (import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT || 'https://ik.imagekit.io/andycorzowork').replace(/\/$/, '');
+
+  // Helper function to normalize category to array format
+  const getCategories = (item) => {
+    return Array.isArray(item.category) ? item.category : [item.category];
+  };
+
+  // Get unique categories from all projects (handling both string and array formats)
+  const allCategories = projectsData.flatMap(item => getCategories(item));
+  const categories = ["all", ...new Set(allCategories)];
+  
+  // Filter projects based on selected category (check if project has the category)
+  const filteredProjects = selectedCategory === "all" 
+    ? projectsData 
+    : projectsData.filter(item => getCategories(item).includes(selectedCategory));
 
   useEffect(() => {
-    if (!containerRef.current || projectList.length === 0) return;
+    if (!containerRef.current || filteredProjects.length === 0) return;
 
-    // Initial animation for rows
+    // Initial animation for grid items
     const tl = gsap.timeline();
-    const projectItems = containerRef.current.querySelectorAll(".row");
+    const projectItems = containerRef.current.querySelectorAll(".project-grid-item");
     
-    // Animate rows in
+    // Animate items in
     tl.fromTo(projectItems, 
       { opacity: 0, y: 50 },
       { 
         opacity: 1, 
         y: 0, 
         duration: 0.8,
-        stagger: 0.2,
+        stagger: 0.1,
         ease: "power3.out"
       }
     );
 
-    const scrollTrigger = ScrollTrigger.create({
-      scroller: ".projects",
-      trigger: containerRef.current,
-      start: "top top",
-      end: "bottom bottom",
-      onUpdate: (self) => {
-        if (self.progress > 0.75) {
-          copyCounter.current += 1;
-          const newProjects = projectsData.map((project) => ({
-            ...project,
-            uniqueId: `${copyCounter.current}-${project.id}-${Date.now()}`,
-          }));
-          setProjectList(prev => [...prev, ...newProjects]);
-        }
-      }
-    });
-
     return () => {
       tl.kill();
-      scrollTrigger.kill();
     };
-  }, [projectList, projectsData]);
+  }, [filteredProjects, selectedCategory]);
 
   const handleMouseEnter = (e) => {
     const container = e.currentTarget;
@@ -217,8 +203,8 @@ const Projects = () => {
 
   return (
     <IKContext
-      publicKey={import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY}
-      urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}
+      publicKey={imageKitPublicKey}
+      urlEndpoint={imageKitUrlEndpoint}
       transformationPosition="path"
     >
       <ReactLenis root>
@@ -230,56 +216,80 @@ const Projects = () => {
                 animateOnScroll={false} 
                 delay={1}
                 className="projects-title"
+                style={{ paddingTop: '100px' }}
               >
                 {langObj.title}
               </AnimatedCopy>
             </div>
-            {projectList.map((project) => (
-              <div className="row" key={project.uniqueId}>
-                <div className="project-item">
-                  <Link to={`/project/${project.id}`}>
-                    <div 
-                      className="projects-img"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      {/* Static image */}
-                      <IKImage
-                        src={project.img.static}
-                        transformation={[
-                          {
-                            height: 500,
-                            width: 800,
-                            quality: 80,
-                            format: "auto"
-                          }
-                        ]}
-                        lqip={{ active: true, quality: 20 }}
-                        alt={project.name}
-                        className="static-img w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                      {/* GIF image */}
-                      {project.img.video && (
-                        <VideoPlaceholder
-                          src={project.img.video}
-                          className="video-preview gif-img w-full h-full object-cover absolute top-0 left-0 opacity-0"
-                          muted
-                          loop
-                          playsInline
-                          preload="auto"
-                        style={{ display: 'none' }}
+            
+            {/* Category Filter */}
+            <div className="category-filters">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`category-filter ${selectedCategory === category ? 'active' : ''}`}
+                >
+                  {category === "all" 
+                    ? (language === "EN" ? "All" : "Todos")
+                    : category}
+                </button>
+              ))}
+            </div>
+
+            {/* Projects Grid */}
+            <div className="projects-grid">
+              {filteredProjects.map((project) => (
+                <div className="project-grid-item" key={project.id}>
+                  <div className="project-item">
+                    <Link to={`/project/${project.id}`}>
+                      <div 
+                        className="projects-img"
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        {/* Static image */}
+                        <IKImage
+                          src={project.img.static}
+                          transformation={[
+                            {
+                              height: 500,
+                              width: 800,
+                              quality: 80,
+                              format: "auto"
+                            }
+                          ]}
+                          lqip={{ active: true, quality: 20 }}
+                          alt={project.name}
+                          className="static-img w-full h-full object-cover"
+                          loading="lazy"
                         />
-                      )}
+                        {/* Video preview */}
+                        {project.img.video && (
+                          <VideoPlaceholder
+                            src={project.img.video}
+                            className="video-preview gif-img w-full h-full object-cover absolute top-0 left-0 opacity-0"
+                            muted
+                            loop
+                            playsInline
+                            preload="auto"
+                            style={{ display: 'none' }}
+                          />
+                        )}
+                      </div>
+                    </Link>
+                    <div className="project-info">
+                      <div className="project-name">{project.name}</div>
+                      <div className="project-category">
+                        {Array.isArray(project.category) 
+                          ? project.category.join(" • ") 
+                          : project.category}
+                      </div>
                     </div>
-                  </Link>
-                  <div className="project-info">
-                    <div className="project-name">{project.name}</div>
-                    <div className="project-category">{project.category}</div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </ReactLenis>

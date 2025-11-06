@@ -7,11 +7,11 @@ import { LanguageContext } from '../../context/LanguageContext';
 //Language Context
 
 const ES = {
-  trail: "Holaa!! Soy Andy un diseñador gráfico y creativo disfruta de este pequeño lugar!",
+  trail: "Holaa!! Soy Andy un diseñador gráfico y creativo, disfruta de este pequeño lugar!",
   trail2: "\u2728 Mueve el cursor para echar un vistazo a mi trabajo \u2728",
 };
 const EN = {
-  trail: " Holaa!! Soy Andy un diseñador gráfico y creativo disfruta de este pequeño lugar!!",
+  trail: "Hello! I'm Andy a Creative Graphic Designer enjoy this little place!",
   trail2: "\u2728 Move the cursor to see a glimpse of my work \u2728",
 };
 
@@ -22,7 +22,7 @@ const mobileES = {
 };
 
 const mobileEN = {
-  trail: "Holaa!! Soy Andy un diseñador gráfico y creativo disfruta de este pequeño lugar!",
+  trail: "Hello! I'm Andy a Creative Graphic Designer enjoy this little place!",
   trail2: "\u2728 Tap to see a glimpse of my work \u2728",
 };
 

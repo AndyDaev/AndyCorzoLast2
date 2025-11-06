@@ -40,31 +40,31 @@ const projectsDataEN = [
   {
     id: 0,
     name: "Altavoz - Theater and Creative Association",
-    category: ["BRAND DESIGN + MERCH"],
+    category: ["BRAND DESIGN","MERCH"],
     img: ProjectImg1,
   },
   {
     id: 1,
     name: "Vision Fest - Hyperpop Festival!",
-    category: ["BRAND DESIGN + MERCH"],
+    category: ["BRAND DESIGN","MERCH"],
     img: ProjectImg2,
   },
   {
     id: 2,
     name: "Okami Esports - Esports Club",
-    category: ["BRAND DESIGN + MERCH"],
+    category: ["BRAND DESIGN","MERCH"],
     img: ProjectImg3,
   },
   {
     id: 3,
     name: "Tonkati - Exotic Food - Mexican Restaurant",
-    category: ["BRAND DESIGN + MERCH"],
+    category: ["BRAND DESIGN"],
     img: ProjectImg4,
   },
   {
     id: 4,
     name: "Gijón Throwdown - Crossfit Competition",
-    category: ["EDITORIAL", "PACKAGING", "UI/UX", "3D", "MOTION GRAPHICS"],
+    category: ["BRAND DESIGN"],
     img: ProjectImg5,
   },
 ];
@@ -72,19 +72,19 @@ const projectsDataES = [
   {
     id: 0,
     name: "Altavoz - Teatro y Asociación Creativa",
-    category: ["DISEÑO DE MARCA"],
+    category: ["DISEÑO DE MARCA", "MERCH"],
     img: ProjectImg1,
   },
   {
     id: 1,
     name: "Vision Fest - Festival Hyperpop!",
-    category: ["DISEÑO DE MARCA"],
+    category: ["DISEÑO DE MARCA", "MERCH"],
     img: ProjectImg2,
   },
   {
     id: 2,
     name: "Okami Esports - Club de Esports",
-    category: ["DISEÑO DE MARCA"],
+    category: ["DISEÑO DE MARCA", "MERCH"],
     img: ProjectImg3,
   },
   {
@@ -96,9 +96,15 @@ const projectsDataES = [
   {
     id: 4,
     name: "Gijón Throwdown - Competición de Crossfit",
-    category: ["EDITORIAL", "PACKAGING", "UI/UX", "3D", "MOTION GRAPHICS"],
+    category: ["DISEÑO DE MARCA"],
     img: ProjectImg5,
   },
+/*   {
+    id: 4,
+    name: "Gijón Throwdown - Competición de Crossfit",
+    category: ["EDITORIAL", "PACKAGING", "UI/UX", "3D", "MOTION GRAPHICS"],
+    img: ProjectImg5,
+  }, */
 ];
 
 const ES = {

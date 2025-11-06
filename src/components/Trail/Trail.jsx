@@ -7,22 +7,22 @@ import { LanguageContext } from '../../context/LanguageContext';
 //Language Context
 
 const ES = {
-  trail: "Holaa!! Soy Andy un diseñador gráfico y creativo inspirado por la estética Hyperpop y la ciencia ficción",
+  trail: "Holaa!! Soy Andy un diseñador gráfico y creativo disfruta de este pequeño lugar!",
   trail2: "\u2728 Mueve el cursor para echar un vistazo a mi trabajo \u2728",
 };
 const EN = {
-  trail: "Hi! I'm Andy a Creative Graphic Designer inspired by Hyperpop aesthetics and Science Fiction",
+  trail: " Holaa!! Soy Andy un diseñador gráfico y creativo disfruta de este pequeño lugar!!",
   trail2: "\u2728 Move the cursor to see a glimpse of my work \u2728",
 };
 
 // New constants for mobile/tablet devices
 const mobileES = {
-  trail: "Holaa!! Soy Andy un diseñador gráfico y creativo inspirado por la estética Hyperpop y la ciencia ficción",
+  trail: "Holaa!! Soy Andy un diseñador gráfico y creativo disfruta de este pequeño lugar!",
   trail2: "\u2728 Pulsa para echar un vistazo a mi trabajo \u2728",
 };
 
 const mobileEN = {
-  trail: "Hi! I'm Andy a Creative Graphic Designer inspired by Hyperpop aesthetics and Science Fiction",
+  trail: "Holaa!! Soy Andy un diseñador gráfico y creativo disfruta de este pequeño lugar!",
   trail2: "\u2728 Tap to see a glimpse of my work \u2728",
 };
 

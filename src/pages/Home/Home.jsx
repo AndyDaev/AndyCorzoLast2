@@ -221,6 +221,12 @@ const Home = () => {
           </section>
 
           <section ref={homeWorkRef} className="home-work">
+            {/* Top bar aligned with grid */}
+            <div className="home-work-bar">
+              <Link to="/work" className="btn">
+                {language === "EN" ? "See more" : "Ver más"}
+              </Link>
+            </div>
             {/* Projects Grid */}
             <div className="home-work-grid">
               {workItems.map((work, index) => (

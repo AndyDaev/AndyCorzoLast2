@@ -85,19 +85,28 @@
 
 .home-work {
   width: 100%;
-  padding: 1em 0.5em;
+  padding: 0 1rem; /* light horizontal padding */
   position: relative;
   z-index: 10; /* Ensure work items appear on top */
 }
 
 .home-work-grid {
   width: 100%;
-  max-width: 1400px;
+  max-width: none;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1em;
   position: relative;
+}
+
+/* Top bar aligned with grid container */
+.home-work-bar {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 1rem auto;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .home-work-item {
@@ -192,7 +201,7 @@
   }
 
   .home-work {
-    padding: 1em 0.5em;
+    padding: 0 0.75rem; /* slightly smaller on mobile */
   }
 
   .home-work-grid {

@@ -59,13 +59,13 @@ const miniFooterLinks = [
   }
 ];
 
-const Footer = () => {
+const Footer = ({ inverted = false }) => {
   const { language } = useContext(LanguageContext);
   const langObj = language === "EN" ? EN : ES;
 
   return (
     <>
-      <div className="footer">
+      <div className={`footer${inverted ? ' inverted' : ''}`}>
         <div className="footer-row">
           <div className="footer-contact">
             <h3 className="primary">
@@ -117,7 +117,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="mini-footer">
+      <div className={`mini-footer${inverted ? ' inverted' : ''}`}>
         {miniFooterLinks.map(link => (
           <Link key={link.key} to={link.path} className="mini-footer-link">
             {language === "EN" ? link.labelEN : link.labelES}

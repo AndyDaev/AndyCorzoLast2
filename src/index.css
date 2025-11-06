@@ -196,3 +196,10 @@ textarea::placeholder {
   cursor: none !important;
 }
 
+/* Hide default cursor globally on devices that support hover and fine pointer */
+@media (hover: hover) and (pointer: fine) {
+  html, body, * {
+    cursor: none !important;
+  }
+}
+

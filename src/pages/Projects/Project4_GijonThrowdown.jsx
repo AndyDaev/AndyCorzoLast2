@@ -6,6 +6,7 @@ import { LanguageContext } from "../../context/LanguageContext";
 import { workListEN, workListES } from "../../data/workList";
 import "./ProjectAltavoz.css";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
+import ProjectsFooter from "../../components/ProjectsFooter/ProjectsFooter";
 
 import Transition from "../../components/Transition/Transition";
 
@@ -264,6 +265,8 @@ const Project4_RoyalCanin = () => {
             
 
            
+            <ProjectsFooter excludeId={currentId} />
+
             <div className="next-project-cta" style={{ flexDirection: 'column', gap: '0.5rem', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
               <Link to={`/project/${nextId}`} style={{ textDecoration: 'none' }}>
                 <h1 className="text-[var(--primary)]" style={{ fontSize: '4.5rem', fontWeight: 'bold' }}>{langObj.nextProject}</h1>

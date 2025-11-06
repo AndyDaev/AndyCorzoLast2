@@ -28,6 +28,8 @@ const EN = {
 const About = () => {
   const { language } = useContext(LanguageContext);
   const langObj = language === "EN" ? EN : ES;
+  const imagekitUrl = import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT;
+  const imagekitPublicKey = import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY;
 
   const socialLinks = [
     {
@@ -48,11 +50,7 @@ const About = () => {
   ];
 
   return (
-    <IKContext
-      publicKey={import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY}
-      urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}
-      transformationPosition="path"
-    >
+    <>
       <Helmet>
         <title>{language === 'EN' ? 'About – Andy Corzo' : 'Sobre mí – Andy Corzo'}</title>
         <meta name="description" content={language === 'EN' ? 'Learn more about Andy Corzo, creative designer and his professional background.' : 'Conoce más sobre Andy Corzo, diseñador creativo y su trayectoria profesional.'} />
@@ -68,20 +66,35 @@ const About = () => {
           <section className="about-single">
             <div className="about-single-content">
               <div className="about-single-image">
-                <IKImage
-                  src="https://ik.imagekit.io/andycorzowork/About/Foto_Andy.jpg?updatedAt=1747152753220"
-                  transformation={[
-                    {
-                      height: 800,
-                      width: 500,
-                      quality: 100,
-                      format: "auto"
-                    }
-                  ]}
-                  lqip={{ active: true, quality: 20 }}
-                  alt="About hero"
-                  className="w-full h-full object-cover"
-                />
+                {imagekitUrl ? (
+                  <IKContext
+                    publicKey={imagekitPublicKey}
+                    urlEndpoint={imagekitUrl}
+                    transformationPosition="path"
+                  >
+                    <IKImage
+                      src="https://ik.imagekit.io/andycorzowork/About/Foto_Andy.jpg?updatedAt=1747152753220"
+                      transformation={[
+                        {
+                          height: 800,
+                          width: 500,
+                          quality: 100,
+                          format: "auto"
+                        }
+                      ]}
+                      lqip={{ active: true, quality: 20 }}
+                      alt="About hero"
+                      className="w-full h-full object-cover"
+                    />
+                  </IKContext>
+                ) : (
+                  <img
+                    src="/about/Foto_Andy.jpg"
+                    alt="About hero"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                )}
               </div>
               <div className="about-single-text text-transform: none">
                 <AnimatedCopy animateOnScroll={true} tag="h1" className="about-title mt-4">
@@ -117,7 +130,7 @@ const About = () => {
           <Footer />
         </div>
       </ReactLenis>
-    </IKContext>
+    </>
   );
 };
 

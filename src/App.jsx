@@ -126,12 +126,14 @@ const App = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    const evaluatePointerCapabilities = () => {
+      const hasCoarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+      const lacksHover = window.matchMedia && window.matchMedia('(hover: none)').matches;
+      setIsMobile(hasCoarsePointer || lacksHover);
     };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    evaluatePointerCapabilities();
+    window.addEventListener('resize', evaluatePointerCapabilities);
+    return () => window.removeEventListener('resize', evaluatePointerCapabilities);
   }, []);
 
   const handleLoaded = () => {

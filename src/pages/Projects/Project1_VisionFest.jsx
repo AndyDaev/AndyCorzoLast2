@@ -6,6 +6,7 @@ import { LanguageContext } from "../../context/LanguageContext";
 import "./ProjectAltavoz.css";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import VideoPlaceholder from "../../components/VideoPlaceholder/VideoPlaceholder";
+import ProjectsFooter from "../../components/ProjectsFooter/ProjectsFooter";
 
 import Transition from "../../components/Transition/Transition";
 
@@ -415,6 +416,8 @@ const Project1_VisionFest = () => {
                 />
               </div>
             </div>
+
+            <ProjectsFooter excludeId={currentId} />
 
             <div className="next-project-cta" style={{ flexDirection: 'column', gap: '0.5rem', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
               <Link to={`/project/${nextId}`} style={{ textDecoration: 'none' }}>

@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { LanguageContext } from "../../context/LanguageContext";
 import "./ProjectAltavoz.css";
 import VideoPlaceholder from "../../components/VideoPlaceholder/VideoPlaceholder";
+import ProjectsFooter from "../../components/ProjectsFooter/ProjectsFooter";
 
 import Transition from "../../components/Transition/Transition";
 
@@ -385,6 +386,8 @@ const Project0_Altavoz = () => {
             </div>
             
 
+
+            <ProjectsFooter excludeId={currentId} />
 
             <div className="next-project-cta" style={{ flexDirection: 'column', gap: '0.10rem', justifyContent: 'center', alignItems: 'center', display: 'flex', }}>
               <Link to={`/project/${nextId}`} style={{ textDecoration: 'none' }}>

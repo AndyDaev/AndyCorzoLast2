@@ -9,6 +9,7 @@ import Transition from "../../components/Transition/Transition";
 import { LanguageContext } from "../../context/LanguageContext";
 import VideoPlaceholder from "../../components/VideoPlaceholder/VideoPlaceholder";
 import "./Projects.css";
+import Footer from "../../components/Footer/Footer";
 
 // Separate static and animated versions of images/videos
 const ProjectImg1 = {
@@ -63,7 +64,7 @@ const projectsDataEN = [
   {
     id: 4,
     name: "Gijón Throwdown - Crossfit Competition",
-    category: ["REBRANDING WORK"],
+    category: ["EDITORIAL", "PACKAGING", "UI/UX", "3D", "MOTION GRAPHICS"],
     img: ProjectImg5,
   },
 ];
@@ -71,31 +72,31 @@ const projectsDataES = [
   {
     id: 0,
     name: "Altavoz - Teatro y Asociación Creativa",
-    category: ["DISEÑO DE MARCA + MERCH"],
+    category: ["DISEÑO DE MARCA"],
     img: ProjectImg1,
   },
   {
     id: 1,
     name: "Vision Fest - Festival Hyperpop!",
-    category: ["DISEÑO DE MARCA + MERCH"],
+    category: ["DISEÑO DE MARCA"],
     img: ProjectImg2,
   },
   {
     id: 2,
     name: "Okami Esports - Club de Esports",
-    category: ["DISEÑO DE MARCA + MERCH"],
+    category: ["DISEÑO DE MARCA"],
     img: ProjectImg3,
   },
   {
     id: 3,
     name: "Tonkati - Comida Exótica - Restaurante Mexicano",
-    category: ["DISEÑO DE MARCA + MERCH"],
+    category: ["DISEÑO DE MARCA"],
     img: ProjectImg4,
   },
   {
     id: 4,
     name: "Gijón Throwdown - Competición de Crossfit",
-    category: ["REBRANDING WORK", "EVENTO"],
+    category: ["EDITORIAL", "PACKAGING", "UI/UX", "3D", "MOTION GRAPHICS"],
     img: ProjectImg5,
   },
 ];
@@ -239,7 +240,7 @@ const Projects = () => {
 
             {/* Projects Grid */}
             <div className="projects-grid">
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, idx) => (
                 <div className="project-grid-item" key={project.id}>
                   <div className="project-item">
                     <Link to={`/project/${project.id}`}>
@@ -262,7 +263,8 @@ const Projects = () => {
                           lqip={{ active: true, quality: 20 }}
                           alt={project.name}
                           className="static-img w-full h-full object-cover"
-                          loading="lazy"
+                          loading={idx < 2 ? "eager" : "lazy"}
+                          decoding={idx < 2 ? "sync" : "async"}
                         />
                         {/* Video preview */}
                         {project.img.video && (
@@ -290,7 +292,9 @@ const Projects = () => {
                 </div>
               ))}
             </div>
+
           </div>
+          <Footer inverted />
         </div>
       </ReactLenis>
     </IKContext>

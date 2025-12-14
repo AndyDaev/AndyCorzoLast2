@@ -48,14 +48,14 @@ const Preloader = ({ onLoaded }) => {
 
   useEffect(() => {
     // Get the work images to preload
-    const workImages = [...workListEN, ...workListES].map(item => item.image);
+   /*  const workImages = [...workListEN, ...workListES].map(item => item.image); */
     // Get the trail images to preload
     const trailImages = trail.map(item => item.src);
     // Get the project hero images to preload
-    const heroImages = projectHeroImages;
+   /*  const heroImages = projectHeroImages; */
     
     // Combine all images to preload
-    const imagesToLoad = [...workImages, ...trailImages, ...heroImages];
+    const imagesToLoad = [...trailImages,];
     const totalImages = imagesToLoad.length;
     let loadedImages = 0;
 

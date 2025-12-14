@@ -45,6 +45,12 @@ Para permitir, conocer, bloquear o eliminar las cookies instaladas en su equipo,
 
 Respecto de las cookies de terceros, es decir, aquellas que son ajenas a nuestro sitio web, no podemos hacernos responsables del contenido ni de la veracidad de las políticas de privacidad que ellos incluyen, por lo que la información que le ofrecemos es siempre con referencia a la fuente.<br/><br/>
 
+<span style='text-transform:uppercase'>Cookies de terceros utilizadas</span><br/>
+A continuación, le informamos sobre las cookies de terceros que pueden aparecer en su navegador al visitar nuestro sitio web:<br/><br/>
+<ul>
+  <li><b>stripe_mid:</b> Esta cookie puede ser establecida por servicios de terceros relacionados con Stripe. Se utiliza para prevención de fraude y seguridad. Esta cookie puede aparecer incluso si nuestro sitio web no utiliza directamente los servicios de Stripe, ya que puede ser establecida por extensiones del navegador u otros servicios externos. Para más información, puede consultar la <a href='https://stripe.com/privacy' target='_blank' rel='noopener noreferrer'>Política de Privacidad de Stripe</a>.</li>
+</ul>
+
 Esta política de cookies podrá ser modificada en función de exigencias legislativas, reglamentarias, o con la finalidad de adaptarla a las instrucciones dictadas por la Agencia Española de Protección de Datos, por lo que se aconseja a los usuarios que la revisen periódicamente.<br/><br/>
 
 Cuando se produzcan cambios significativos en esta política de cookies, se comunicarán a los usuarios bien mediante la web o a través de correo electrónico a los usuarios registrados.`
@@ -76,6 +82,13 @@ To allow, view, block, or delete cookies installed on your device, you can adjus
   <li><b>Safari:</b> Preferences → Security. See <a href='https://support.apple.com/guide/safari/sfri11471/mac' target='_blank' rel='noopener noreferrer'>Apple Support</a> or the browser’s Help section.</li>
 </ul>
 Regarding third-party cookies (those not managed by our website), we are not responsible for their privacy policies or the accuracy of the information they provide. Our information about such cookies is always referenced to the source.<br/><br/>
+
+<span style='text-transform:uppercase'>Third-party cookies used</span><br/>
+Below is information about third-party cookies that may appear in your browser when visiting our website:<br/><br/>
+<ul>
+  <li><b>stripe_mid:</b> This cookie may be set by third-party services related to Stripe. It is used for fraud prevention and security purposes. This cookie may appear even if our website does not directly use Stripe services, as it can be set by browser extensions or other external services. For more information, please refer to <a href='https://stripe.com/privacy' target='_blank' rel='noopener noreferrer'>Stripe's Privacy Policy</a>.</li>
+</ul>
+
 This Cookie Policy may be updated due to legislative or regulatory changes, or in order to adapt to the instructions issued by the Spanish Data Protection Agency. Therefore, users are advised to review it periodically.<br/><br/>
 When significant changes are made to this Cookie Policy, users will be notified either via the website or by email (if registered).`
 };

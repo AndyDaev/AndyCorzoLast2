@@ -27,6 +27,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import NotFound from './pages/NotFound';
 import { trail } from './utils/trail';
 import { projectHeroImages } from './utils/projectHeroImages';
+import { useCookies } from "react-cookie";
+import CookieConsent from './components/Cookie/CookieConsent';
 
 // Map of project components
 const PROJECT_COMPONENTS = {
@@ -36,6 +38,8 @@ const PROJECT_COMPONENTS = {
   "Project3_Tonkati": Project3_Tonkati,
   "Project4_GijonThrowdown": Project4_GijonThrowdown,
 };
+
+
 
 // Preloader component
 const Preloader = ({ onLoaded }) => {
@@ -124,6 +128,7 @@ const App = () => {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [cookies] = useCookies(['cookieConsent']);
 
   useEffect(() => {
     const evaluatePointerCapabilities = () => {
@@ -166,6 +171,7 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
             </Routes>
           </AnimatePresence>
+          {!cookies.cookieConsent && <CookieConsent />}
         </>
       )}
     </LanguageProvider>

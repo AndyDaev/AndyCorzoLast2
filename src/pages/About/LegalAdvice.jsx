@@ -14,7 +14,7 @@ La utilización del sitio web implica la aceptación plena y sin reservas de tod
 1.- <b>TITULARIDAD DEL SITIO WEB</b><br/>
 Nombre o razón social: Andrés López Corzo<br/>
 Nombre del titular: Andrés López Corzo<br/>
-Domicilio social: Calle Silla del Rey 35<br/>
+Domicilio social: Calle Silla del Rey 35, 6A<br/>
 Localidad: Oviedo<br/>
 Provincia: Asturias<br/>
 C.P.: 33013<br/>
